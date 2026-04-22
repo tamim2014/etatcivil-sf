@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.5;
+    background: #ECECEA;
+}
+
+/* Style en-tête */
+.en-tete{
+    background-color: #558C89; /*   ✍️*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+    position: relative;    
+}
+/* topNav */
+.menu{
+    background-color: #74AFAD; /*  ✍️*/
+    /* Essai  */
+    margin-top: -16px;
+    text-align: center;
+}
+.menu li {
+    display:inline-block;
+    padding:14px 16px;/* padding:20px; */
+    list-style:none;
+}
+.menu a {
+    color:#000;
+    text-decoration: none;
+}
+.menu a:hover {
+    color:#fff;
+}
+.current-menu-item a {
+    color:#ECECEA;
+}
+
+
+
+
+.colonne_laterale {
+    width: 30%;
+    /* float: left;   ✍️remplacé par  form{ display: left}  <= 2 paradigme encien(1998) et nouveau(2017) */
+    padding: 0 20px 0 20px; 
+    list-style-type: none;
+}
+
+
+/* Clear floats after the columns */
+.contenu:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.colonne_contenu {
+    width: 68%;
+  /*  float: left; ✍️*/
+    padding: 25px 20px;
+    background: white;
+}
+
+
+
+.colonne_laterale li {
+    list-style:none;
+}
+
+.colonne_laterale aside {
+	/* à supprimer ces 2 première proprietés  ✍️ */
+    background:inherit;    
+    padding:15px;
+	padding-top:0 !important;
+	
+	margin:0 0 15px;
+	
+}
+
+.aside1, .aside2 {
+	padding:0 !important; 
+	margin-bottom:0 !important;
+}
+
+
+
+
+.colonne_laterale aside h1 {
+    border-bottom: 1px dashed #CCC;
+    margin-bottom:10px;
+}
+
+.footer {
+    background-color: #74AFAD; 
+    text-align: left;
+	
+	margin-top:0;
+	padding:0.5em 1em; 
+}
+
+/* Nouvelle façon de fixer le footer */
+ body{ 
+	 display:flex;	  
+	 flex-direction:column;
+	 min-height:100vh;
+	 width:100%;		 
+ }
+ .contenu {
+   flex:1;		   
+ }
+
+
+
+
+img {
+    float:left;
+    margin-right: 8px;
+}
+
+/* ################ TASKS: COMPLEMENT DE ZONNING(Virer l'espace vide en bas=> remplir donc, toute la hauteur de la page) ###########################################  */ 
+  
+  form{
+	     /* ⚠    Attention form est le parent des colonnes, pas .contenu                              ⚠️ *******/
+	    /* ⚠⚠️   Par contre .contenu est le bon parent dans les pages d'accès en lecture             ⚠️⚠️ ****/
+	   /* ⚠️⚠️⚠️  form { display:flex }  remplace .colonne_laterale, .colonne_contenu { float:left; }⚠️⚠️⚠️ */
+	 
+	 display: flex; /** 🎯 */
+  }
+ 
+
+  aside.aside1, aside.aside2{
+	 height:100% !important;  /* ⚠️ virer l'espace vide en bas */
+	 background:#ECECEA  !important; 
+	 box-shadow: 0 0 65px #cdbe9f inset !important;
+  }
+  aside.aside2{
+	  box-shadow:none !important;
+  }
+  
+  .tablegauche{ 
+	  min-height:50vh !important; /*⚠️ c'était à 22.5em; */
+  }
+  
+

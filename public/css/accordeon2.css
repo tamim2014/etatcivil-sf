@@ -1,0 +1,54 @@
+   
+			
+		/* #########################################  LE MENU ACCORDEON ################################################### */
+  
+		#aside{
+	         float:left;	     
+		     text-align:left;
+             padding:0 ;	            			 
+	    }
+		ul:hover { list-style-type: none; }
+		ul.navigation {
+		  margin: 0 ;
+		  padding: 0 ;
+		  list-style: none;
+		  color: #fff;
+		  width: 250px;
+		  		  
+		}
+		.navigation .subMenu {		  
+		  background: #49505a url(subMenu.png) 0 0 repeat-x;
+		  font-size: .9em;
+		  margin: 0 t; padding: 0 ;
+		  border-bottom: 1px solid #666;
+		} 
+		.navigation ul.subMenu a {
+		  background: none;		 
+		}
+		
+		a:hover { opacity: .7;   }
+		.navigation a, .navigation span {
+		  display: block;		  
+		  color:  #c4c4c4; 
+		  text-decoration: none;
+		}
+		
+		
+        .toggleSubMenu .subMenu a{ color:white; }
+		
+		
+		/****************** c'est là que ça s'passe ! ******************************/
+		
+		 ul.navigation li.toggleSubMenu { 
+			 
+			 padding:0;
+			 display:block;
+		 }		 
+		 ul.subMenu li{
+			 display:block;
+			 padding-top:0; padding-bottom:0;
+		 }
+		
+
+		
+	

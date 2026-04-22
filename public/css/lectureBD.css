@@ -1,0 +1,157 @@
+ 
+    /* 
+	 *
+	 * lectureBD_menu.php( appelee par le bouon Liste acte de naissance de la page d'accueil)
+	 *
+     */
+	
+	
+	
+	
+	/*
+	 PANEAU DE GAUCHE
+
+	 
+	     👉 c'était le style de l'ancien menu ! 
+		 👉  j'ai tout viré sauf le box chadow d'anjouan et moheli.  appliqué au nouveau  
+		 👉 Mais j'ai gardé une branche archive sur github qui s'appelle comme suit:
+		 👉 github.com/tamim2014/etatcivil23/tree/lectureBD_archive
+
+           ...
+	       
+    Fin Panneau de GAUCHE
+	*/
+		
+		
+		
+/* ############################################################################################# */		
+		
+		
+		
+		
+		
+		.panel3  { /* panel yahé sous-sous-menu de  à droite   - contient les préfectures Moroni-bambao ,Hambou, ...etc*/
+		     list-style:none; text-align:center;
+			 display: none; 
+			 color: ; 
+		     background-color: silver; 
+			 border: solid 1px #c3c3c3;
+			 width:180px; 
+			 position:relative;  Line-Height: 1.5;
+			 margin-left: .4%;
+		}
+		
+           
+
+
+		 
+		 
+         /*PANEAU DE DROITE */ 
+		 /* pour lectureBD.php */
+		 .mnayvawo { 
+		      position:relative;
+			  height:60px;
+			  width:100%;  margin:2% auto ; /* centrage horizontal du .mnayvawo*/
+			  padding:.55em; /* centrage vertical du contenu(.boutonyamnayivawo) */
+              			  			  
+              /* Pour limiter lataille du conteneur overflow:  auto; sinon il va s'adapter à la taille du contenu */ 
+			  background-color: #e5eecc;
+			  white-space:nowrap;
+			  z-index:2; 
+			  box-shadow: 1px 1px 0px 0px green;
+			  border-radius:8px;			  
+			}		
+		 .boutoyahemnayivawo{
+			   background-color: #cdbe9f; 
+			   height: 40px;   
+			   display: block;  
+			   text-align:center;  padding-top: 5px; padding-bottom: 5px; font-size: 15px; font-style: italic; font-family: Times New Roman;  
+			   width: 80%; margin:auto ;  /* centrage horizontal */
+			   border-radius:6px;             			   
+			   box-shadow:
+                          0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset,
+                           0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+		  }
+		/* Le tableau des résultats */	
+		#yivawo  {  
+              position: relative;
+              height:59vh !important; /* min-height:59vh 🔍 pour voir que les colonnes ne descendent pas jusqu'au footer <= Bug zonning à corriger rapidement(solution: .aside1, aside2 {height:100%;// aulieu de min-height:100vh}) INCHA ALLAH */
+			  /* top:52px; left:13px; height:444px; width:539px;  */
+              width:100%;  margin:2% auto ; /* centrage horizontal du .mnayvawo*/			  
+	          background-color: #e5eecc; 
+	          overflow:  auto;  white-space:nowrap;  display: block; 
+			  box-shadow: 1px 1px 0px 0px #cdbe9f;
+			  border-radius:10px;			  
+         }
+		 
+		 /* Des couleurs alternées dans les lignes de la table: lectureBD.php*/
+		#yivawo table tr:nth-child(2n+2) td {
+				color:Peru ;
+				background: silver;
+				border-radius:4px;
+				-webkit-border-radius:4px;
+				-moz-border-radius:4px;
+                -khtml-border-radius:4px;
+        }
+		
+	    table.color_line_middle tr  th {
+			    border-radius:1px;
+				-webkit-border-radius:1px;
+        }
+		table.color_line_middle tr:nth-child(2n+1) td {
+				color:Peru ;
+				background:silver;
+				-webkit-border-radius:1px;
+        }  
+
+        .color_line_middle { position:absolute; z-index:2;  left:310px;  right:40px; top:195px;    height:440px; width:520px;   
+              overflow:  auto; 
+			  white-space:nowrap;
+			  display: block;  
+		}
+		 
+	  /* Les hover creux sur les prefecture(test sur Anjouan et moheli - c'est tout c'que j'garde de l'ancien menu */
+	  
+	  	.island1 , .island2  , .island3   {
+		     font-size: 15px; font-style: italic; font-family: "Times New Roman", Georgia, Serif; 
+		}
+        a.island1:hover , .island2:hover , .island3:hover  { 
+		    padding-top:1%; padding-bottom:1%; 
+			background-color: #cdbe7f;  position:relative; left:1px;
+			border-radius:2px;
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+			/* Pour calmer la bougeote du menu */
+			transition: background-color 0.2s ease;
+			
+		} 
+      /* Aerer un peu les sous menus: Pour mettre le boxshadow encastré sur hover */
+         ul.subMenu	{
+			 padding-top:1em !important;
+			 padding-bottom:1em !important;
+		 }  
+
+      /* On remplace les btn (Imprimer, Afficher) par des icone 👉 voir SERVEUR/lectureBD_afficherNaissance.php */
+
+		.icon-btn {
+			font-size: 18px;      
+			cursor: pointer;
+			padding: 4px 1px;
+			display: inline-block;
+			transition: 0.2s;
+		}
+		.icon-btn:hover {
+			transform: scale(1.2);
+		}
+		 tr.tetetable th  {
+			padding: 0.5rem 0.3rem ;
+			line-height: 1.4;
+		}
+		
+/*
+   	Astuce pour tester si le css est bien chargé 
+	et pour identifier tous les composants de la page 
+	
+	* { outline: 1px solid red !important;  }
+
+
+*/		

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/template.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/accueil22.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slide.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dropdown.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/flextablegauche.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    
+{% endblock %}
+
+{% block body %}
+
+<header>
+    <div class="en-tete">
+        <div class="hollowTop">
+            <img src="{{ asset('img/drapeau.png') }}" class="flag" style="height:100%; filter:brightness(80%);" />
+            <p class="text_header" style="padding-top:2%; padding-left:45%;">OFFICE D'ÉTAT CIVIL</p>
+        </div>
+    </div>
+
+    <div class="menu topnav" id="myTopnav">
+	   {% include 'inc/accueil/accueil_menucentral_login.html.twig'  %}
+    </div>
+</header>
+
+<div class="contenu">
+    <form id="formSource" method="post" action="{{ path('login') }}"   name="form1">
+        <div class="colonne_laterale">
+            <aside class="aside1">
+                <table class="tablegauche" style="margin-bottom:0; padding-bottom:0; background:#ECECEA;">
+                    <caption style="caption-side:top; box-shadow: 0 20px 65px #cdbe9f inset; padding:0 8px;">
+                        <font color="gray" style="line-height:2;">
+                            <h3>UNION DES COMORES</h3>
+                            <h6>Unité - Solidarité - Développement</h6>
+                            <h4 style="line-height:1.3 !important;">MINISTÈRE<br>DE<br>L'INTÉRIEUR</h4>
+                        </font>
+                        <img src="{{ asset('img/armoirie.png') }}" style="margin-left:40%; margin-right:40%; margin-bottom:1%; width:20%;" />
+                    </caption>
+
+                    <tr><td id="auth">AUTHENTIFICATION</td></tr>
+
+                    <tr>
+                        <td>
+                            <b style="color:#cdbe9f;">Entrer votre</b> login<br>
+                            <input type="text" id="login_" name="pseudo_">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b style="color:#cdbe9f;">Votre</b> mot de passe<br>
+                            <input type="password" id="pswd_" name="motdepasse_">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding-top:1em;">
+                            <textarea class="t_area" name="myTextBox" style="font-size:1em;">Veuillez saisir vos identifiants</textarea>
+                            <br>
+                            <input id="valider_" type="submit" class="submit btnHover"
+                                   value="Valider" name="envoie"
+                                   style="background:#ECECEA; color:#111; padding:.3em 3.3em; margin:1em auto 0; border-radius:4px;">
+                        </td>
+                    </tr>
+                </table>
+            </aside>
+        </div>
+    </form>
+</div>
+
+<div class="footer" style="text-align:left;">
+    <span><span style="color:#555;">2026 © -</span> <span style="color:#333;">Etat civil</span></span>
+</div>
+
+{% endblock %}

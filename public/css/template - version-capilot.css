@@ -1,0 +1,94 @@
+        .colonne_contenu {
+			width: 70%;			
+		}
+		.contenu form {
+			display: flex;
+			gap: 20px;
+		}
+		.colonne_laterale,
+		.colonne_contenu {
+			float: none;
+		}
+        /* on défini les proportions */
+        .colonne_laterale {
+           flex: 0 0 30%;
+		}
+
+		.colonne_contenu {
+			flex: 1;
+		}
+
+         .color_line {
+			position:relative;
+			width:100%;
+			max-width:100%;
+		}
+
+       /* template.css   version capilot */
+	   /* Le conteneur principal */
+.contenu {
+    width: min(90%, 1200px);
+    margin: auto;
+    padding: 20px 0;
+}
+
+/* Le layout interne (remplace les floats) */
+.contenu .layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Colonne gauche */
+.colonne_laterale {
+    flex: 0 0 300px; /* largeur fixe mais fluide */
+    padding: 0 20px;
+}
+
+/* Colonne droite */
+.colonne_contenu {
+    flex: 1; /* prend tout l’espace restant */
+    padding: 25px 20px;
+    background: white;
+}
+
+/* Supprimer les anciens floats */
+.colonne_laterale,
+.colonne_contenu {
+    float: none !important;
+}
+
+/* Rendre les tables fluides */
+.tablegauche,
+.tabledroite {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+/* Éléments qui étaient en position:absolute */
+.color_line,
+.color_line_short {
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+}
+/* version responsive mobile */
+@media (max-width: 900px) {
+    .contenu .layout {
+        flex-direction: column;
+    }
+
+    .colonne_laterale {
+        flex: none;
+        width: 100%;
+    }
+
+    .colonne_contenu {
+        width: 100%;
+    }
+}
+
+	   

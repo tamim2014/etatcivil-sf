@@ -1,0 +1,71 @@
+/*
+ *
+ * style specifique à index.php
+ *
+ */
+	    .btnHover:hover{
+			padding-top:1%; padding-bottom:1%;
+			padding-left:12% !important;
+			font-size:1em !important;
+			font-style: italic !important;
+			background-color: #cdbe7f !important;  
+			border-radius:2px;			
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+		}
+		
+		/* Redimentionnement  div.colonne_laterale et ses composants */
+		
+		.colonne_laterale{
+			width:39.5%;
+		}
+		
+	    .tablegauche{
+		    display:flex; /* c'ce qui donne ce rendu particulier à cette page ⚠️ */
+			width:79vh; /* 98%;🔍⚠🔍 ⚠️ */
+		    min-height:100vh !important; /* ⚠️ */
+			margin-bottom:0; 
+			padding-bottom:0;    
+			background:#ECECEA; 
+	    }
+	    .tablegauche tr td {  
+		   padding-left:2vw;
+		   padding-bottom:1em;
+		} 
+		.tablegauche tr td input, textarea{
+			width:21vw !important;
+			max-width:300px;
+			padding:.4em;
+		}
+		textarea{ height:10vh; }
+		#auth{ padding-top:.7em;}
+		
+		/* Virer les bortures autour des champs */
+		input:focus,
+		textarea:focus {
+			outline: none !important;
+			border: none !important;
+		}
+
+		/* background-color des input */
+		
+		input#login_, input#pswd_{
+			background:#ddd !important; /* impossible à changer ⚠️  j'sais pas pourquoi! */
+		}
+		/* solution: Ecraser le input:-webkit-autofill */
+		input:-webkit-autofill,
+		input:-webkit-autofill:focus {
+			background-color:#ddd !important;
+			-webkit-box-shadow: 0 0 0px 1000px #c4c4c4 inset !important;
+			box-shadow: 0 0 0px 1000px #ddd inset !important;
+			outside:none !important; /* ?????*/
+		}
+		input:-webkit-autofill:hover {
+			background-color: #cdbe7f  !important; 
+			-webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.5) !important;
+			box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.5) !important;
+		}
+		
+		/*
+		#login_:hover , #pswd_:hover  { background-color:white !important; color:#ffffff; font-size: 17px; font-weight:bold;    box-shadow:0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.5); }
+        #valider_:hover { color: #1D702D;   font-style: italic;}
+        */
