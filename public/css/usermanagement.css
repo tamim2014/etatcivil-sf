@@ -4,7 +4,7 @@
 	*  Jeudi 17.04.2026
 	*
 	*  Le squelette de la page a evolué
-	*  L'ajout de nouvelles formulaires( add/delete user ) dans div.colonne_contenu impose de sortir cette colonne hors du formulaire du form#formeSource
+	*  L'ajout de nouvelles formulaires( add/delete roles ) dans div.colonne_contenu impose de sortir cette colonne hors du formulaire du form#formeSource
 	*  => .colonne_contenu est donc expulsé de son conteneur. Il adjacent à son ancien conteneur form#formeSource
 	*  => form#Source et .colonne_contenu sont tous les 2 agencés par un display:flex sur leur conteneur .contenu
 	*

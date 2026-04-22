@@ -29,7 +29,7 @@ class UsermanagementController extends AbstractController
 
                 $login = $request->request->get('pseudo');
                 $mdp   = $request->request->get('motdepasse');
-                $user  = $request->request->get('user');
+                $roles  = $request->request->get('roles');
 
                 // Vérifier si le pseudo existe déjà
                 $existe = $repo->createQueryBuilder('l')
@@ -47,7 +47,7 @@ class UsermanagementController extends AbstractController
                 $officier = new Listeofficiers();
                 $officier->setPseudo($login);
                 $officier->setMotdepasse($mdp);
-                $officier->setUser($user);
+                $officier->setroles($roles);
 
                 $em = $doctrine->getManager();
                 $em->persist($officier);

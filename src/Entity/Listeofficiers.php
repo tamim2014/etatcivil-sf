@@ -20,7 +20,7 @@ class Listeofficiers
     private ?string $motdepasse = null;
 
     #[ORM\Column(length: 30, nullable: true)]
-    private ?string $user = null;
+    private ?string $roles = null;
 
     public function getId(): ?int
     {
@@ -58,14 +58,14 @@ class Listeofficiers
         return $this;
     }
 
-    public function getUser(): ?string
+    public function getroles(): ?string
     {
-        return $this->user;
+        return $this->roles;
     }
 
-    public function setUser(?string $user): static
+    public function setroles(?string $roles): static
     {
-        $this->user = $user;
+        $this->roles = $roles;
 
         return $this;
     }
