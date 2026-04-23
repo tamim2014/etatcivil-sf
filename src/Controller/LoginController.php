@@ -22,10 +22,10 @@ class LoginController extends AbstractController
 				return $this->redirectToRoute('usermanagement');
 			}
 
-			// Sinon, message d’erreur
-			$this->addFlash('error', 'Identifiants incorrects');
-		}
-
+			// Sinon, message d’erreur					 
+			  $this->addFlash('error', 'Identifiants incorrects');
+              return $this->redirectToRoute('login');			  		
+		}		
 		return $this->render('login.html.twig');
 	}
 }

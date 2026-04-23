@@ -1,0 +1,32 @@
+		<table>
+			 <tr><td class="listemenu" id="flip" > 
+                
+				<span>Acte de naissance</span> {% include 'inc/accueil/accueil_choisir_naissance.html.twig'  %}<br>    <div id="panel" class="scrolbar"></div>  <!-- div#panel est le conteneur de la table -->  
+                <span style="padding-right:8px">Acte de mariage</span> {% include 'inc/accueil/accueil_choisir_mariage.html.twig'  %}<br>
+                <span style="padding-right:14px">Acte de divorce</span> {% include 'inc/accueil/accueil_choisir_divorce.html.twig'  %}<br> 
+				<span style="padding-right:26px">Acte de dec&egrave;s</span> {% include 'inc/accueil/accueil_choisir_deces.html.twig'  %} 
+			
+             </td></tr>  
+		</table>
+		<!-- le p'tit menu sous le panel [qui appelle une nouvelle table: voir la 5ème colonne du slide]-->
+		<div id="commandePanel" >
+			<!-- Solution jQuery -->
+			<a id="zima"    href="SERVEUR/colonne_supprimer_acte.php"> <input type="button"  value="Supprimer"  class="boutonSupprimer" /></a> 
+			<a id="rectif"  href="SERVEUR/colonne_rectifier_acte.php"> <input type="button"  value="Rectifier"  class="boutonRectifier" /></a>
+			<a id="print_"  href="SERVEUR/colonne_imprimer_acte.php" >  <input type="button"  value="Imprimer"    class="boutonImprimer" /></a> 
+			<a id="trier"   href="SERVEUR/trier.php" >  <input type="button"  value="Ordre alphabétique"    class="boutonTrier" /></a> 
+
+			<!-- Solution AJAX 
+			<a id="zima"    href="#"  onclick="showSupprimer()> <input type="button"  value="Supprimer"  class="boutonSupprimer" /></a> 
+			<a id="rectif"  href="#"  onclick="showRectifier()> <input type="button"  value="Rectifier"  class="boutonRectifier" /></a>
+			<a id="print_"  href="#" onclick="showImprimer()">  <input type="button"  value="Imprimer"    class="boutonImprimer" /></a> 
+			-->
+		</div>
+		
+		<!-- ✅ Pour les messages - Boite de dialogue -->
+		<div id="dialogBox">
+			<div id="dialogContent">
+				<p id="dialogMessage"></p>
+				<button onclick="closeDialog()">OK</button>
+			</div>
+		</div>

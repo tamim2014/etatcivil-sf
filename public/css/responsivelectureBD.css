@@ -1,0 +1,142 @@
+/*
+ * Garges-les-gonesse
+ * Samedi 18.04.26
+ *
+ * Fichiers cibles:
+ * lectureBD.php, lectureBD2.php,
+ *
+ * ⚠️div.contenu: Conteneur de #formeSource  et colonne_contenu
+ *
+ * Application responsive sur:
+ * topnav
+ * div.contenu
+ *
+ */
+
+
+/* RESONSIVE div#myTopnav */
+
+
+/* Style normal (grand écran) */
+
+.menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+/* --- MODE RESPONSIVE AUTOMATIQUE --- */
+
+
+@media screen and (max-width: 1000px) {
+	.menu ul {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .menu li {
+		text-align: left !important;
+        display: block;
+        width: 100%;
+       /* border-bottom: 1px solid #ddd; */
+	   padding-top:0;
+	   padding-bottom:0;/*⚠️ 1em */
+    }
+	.menu li:first-child { padding-top:1em;}
+	.menu li:last-child { padding-bottom:1em;}
+	 
+
+    /* Sous-menus cachés par défaut */
+    .dropdown-content {
+        display: none;
+        position: static;
+    }
+
+    /* Quand on clique sur le parent → on ouvre */
+    .dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+
+    /* Le bouton doit pouvoir recevoir le focus */
+    .dropbtn {
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: none;
+        font-size: 16px;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .dropbtn {
+        width: 100%;
+        text-align: left;
+        background: none;
+        border: none;
+        font-size: 16px;
+        padding: 0;
+    }
+}
+
+		 
+/* RESONSIVE div.contenu */
+
+		/*  ✅ 1. Rendre .contenu responsive */
+	    .contenu {/* ⚠️⚠️⚠️ */
+			display: flex;
+			flex-wrap: wrap; /* ← indispensable */
+			width: 100%;
+			box-sizing: border-box;
+		}
+		/*  ✅ 2. Rendre .colonne_laterale flexible */
+		 .colonne_laterale {
+			flex: 1 1 200px; /* largeur minimale */
+			/* max-width: 300px; */
+			max-width: 29% ; /* ⚠️ */
+			box-sizing: border-box;
+		}
+
+		/*  ✅ 3. Rendre .colonne_contenu flexible */
+		    .colonne_contenu {
+				flex: 1 1 400px; /* largeur minimale */
+				max-width: 100%;
+				box-sizing: border-box;
+			}
+			
+		/* 🎯 On ajuste les dimensions( surtout .tablegauche) 	*/
+		
+		/* @media (max-width: 1000px) { */
+		@media screen and (max-width: 1000px) {
+			#formSource{ width:100%; height:40vh; } 
+			.colonne_laterale{ 
+			   min-width: 100% ; /* ⚠️ */
+			   padding:0; 
+			} 
+			.tablegauche{ 
+			      width:100%; /* ⚠️ */
+			      min-height:auto !important; /* ⚠️ */
+			} 
+			/* 
+			 *  Problème:Débordement tabledroite dans lectureBD2.php 
+			 * .mnayvawo{ padding:5.8em; } le coupable
+			 *  Solution: j'ajoute la classe .mnayvawo2 pour pas impacter lectureBD.php
+			 */
+			 .mnayvawo2{ padding:1em 1.2em !important; }
+			 /* 
+			  *Problème: Débordement tabledroite dans lectureBD.php si tabale ouverte
+              * On remonte à lectureBD2_searchPlayBack.php		  
+              *	mais 		  
+              *	table.resultat_moteur ne prend pas tjrs		  
+			  */
+			  /*
+			  .mnayvawo, .line1, .manayvawo table.resultat_moteur {
+				max-width:80%  ; 
+				overflow-x:hedden ;
+				
+			  }
+			  */
+			 
+			  
+			
+			
+            			
+		}

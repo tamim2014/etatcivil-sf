@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/template.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/accueil22.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dropdown.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsiveAccueil.css') }}">
+    <!-- ✅ Dépendances de l'include accueil_prefecture.html.twig -->
+    <link rel="stylesheet" href="{{ asset('css/slide.css') }}" title="Style_du_Slide_pageDaccueil">
+    <link rel="stylesheet" href="{{ asset('css/prefecture.css') }}" title="boutons_Sous_Le_Slide">
+    <link rel="stylesheet" href="{{ asset('css/commandes_panel.css') }}" >
+
+    
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <!-- ✅ Pour les messages - Boite de dialogue et les Popup -->
+    <script src="{{ asset('js/dialogueBox.js') }}"></script>
+    <!-- ✅ Ouverture du panel -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <!-- ✅ Dépendances de l'include accueil_prefecture.html.twig -->
+    <script src="{{ asset('js/capture_items.js') }}"></script>
+    <script src="{{ asset('js/accueil_liens_colonne5.js') }}"></script>
+    <script src="{{ asset('js/accueil_commandes_panel.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<header>
+    <div class="en-tete">
+        <div class="hollowTop">
+            <img src="{{ asset('img/drapeau.png') }}" class="flag" style="width:30%; height:100%; filter:brightness(80%);" />
+            <p class="text_header" style="padding-top:2%; padding-left:45%;">OFFICE D'ÉTAT CIVIL</p>
+        </div>
+    </div>
+
+    <div class="menu topnav" id="myTopnav">
+	   {% include 'inc/accueil/accueil_menucentral.html.twig'  %}
+    </div>
+</header>
+
+<div class="contenu" style="margin-bottom:0;">
+    <form  method="post" action=""   name="form1">
+        <!-- LE PANNEAU DE GAUCHE : Recher des document par numero ou nom -->
+        <div class="colonne_laterale" style=" margin-bottom:0; padding-bottom:0; height:auto;">
+            <aside class="aside1">
+                <table class="tablegauche" style="margin-bottom:0; padding-bottom:0; height:24em; "  > <!-- height:24em;  -->
+                    <!-- <caption  style="caption-side:top; box-shadow: 0 0 65px #cdbe9f inset, 0 0 20px #beae8c inset, 0 0 5px #816f47;  ">  -->
+                    <caption  style="caption-side:top; box-shadow: 0 20px 65px #cdbe9f inset;"> 
+                        <font color="gray" style="line-height:2;">
+                                <h3> UNION DES COMORES  </h3>
+                                <h6> Unit&eacute;-Solidarit&eacute;-D&eacute;veloppement  </h6>
+                                <h4> MINISTERE DE L'INTERIEUR  </h4>
+                            </font>
+                        
+                        <!--  <img src="img/armoirie.png" style="z-index:3; transform: translate(210%, 0);  "  /> -->
+                            <img src="img/armoirie.png" style="z-index:3;  margin-left:40%; margin-right:40%; width:20%;  " /> 
+                        </caption>
+                        <tr > <td id="recherchedocument">RECHERCHE DE DOCUMENT</td></tr>
+                        <tr><td> <font color="#cdbe9f"><b>Search by</b></font> number<br/> <input style="width:50%;" id="recherchenum" type="text" name="acte_" pattern=".{1,}"  > </td></tr> 
+                        <tr><td> <font color="#cdbe9f"><b>Search by</b></font> name    <br/> <input style="width:50%;" id="recherchenom" type="text" name="nom_"  > </td></tr>
+                        <tr><td style="padding-top:1em;">
+                            <textarea class="t_area" style="font-size:1em" name="myTextBox" cols="24" rows="4"> {{ message }} </textarea>
+                        <br/><input class="btnHover" type="submit" name="envoie" value="Chercher"  style="background:transparent ; color:#111; padding:.3em 3.3em; margin:1em auto; " />
+                        </td></tr>
+                </table>					 
+            </aside>
+        </div>
+        <!-- LE PANNEAU DE DROITE : Recher des document par liste déroulante -->
+        <div class="colonne_contenu" style="padding:0;">
+            <aside class="aside2">
+                <table  class="tabledroite" >
+                        <tr><td class="listemenu"> {% include 'inc/accueil/accueil_prefecture.html.twig'  %} </td></tr> 
+                </table>
+            </aside>
+        </div>
+    </form>
+</div>
+
+<div class="footer" style="text-align:left;">
+    <span><span style="color:#555;">2026 © -</span> <span style="color:#333;">Etat civil</span></span>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<select onchange="captureCombo(this.value)">
+
+    <optgroup label="Ngazidja">
+        {% for valeur, nom in ngazidja %}
+            <option value="{{ valeur }}"
+                {% if nom == 'Préfecture de:' %}selected{% endif %}
+            >
+                {{ nom }}
+            </option>
+        {% endfor %}
+    </optgroup>
+
+    <optgroup label="Moheli">
+        {% for valeur, nom in moheli %}
+            <option value="{{ valeur }}">{{ nom }}</option>
+        {% endfor %}
+    </optgroup>
+
+    <optgroup label="Anjouan">
+        {% for valeur, nom in anjouan %}
+            <option value="{{ valeur }}">{{ nom }}</option>
+        {% endfor %}
+    </optgroup>
+
+    <optgroup label="Mayotte" disabled>
+        {% for valeur, nom in mayotte %}
+            <option value="{{ valeur }}">{{ nom }}</option>
+        {% endfor %}
+    </optgroup>
+
+</select>
