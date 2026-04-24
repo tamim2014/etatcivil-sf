@@ -11,7 +11,9 @@
 		<!-- le p'tit menu sous le panel [qui appelle une nouvelle table: voir la 5ème colonne du slide]-->
 		<div id="commandePanel" >
 			<!-- Solution jQuery -->
-			<a id="zima"    href="SERVEUR/colonne_supprimer_acte.php"> <input type="button"  value="Supprimer"  class="boutonSupprimer" /></a> 
+			<!-- <a id="zima"    href="SERVEUR/colonne_supprimer_acte.php"> <input type="button"  value="Supprimer"  class="boutonSupprimer" /></a> -->
+			<a id="zima" href="{{ path('acte_liste') }}" ><input type="button"  value="Supprimer"  class="boutonSupprimer" /></a>
+		 
 			<a id="rectif"  href="SERVEUR/colonne_rectifier_acte.php"> <input type="button"  value="Rectifier"  class="boutonRectifier" /></a>
 			<a id="print_"  href="SERVEUR/colonne_imprimer_acte.php" >  <input type="button"  value="Imprimer"    class="boutonImprimer" /></a> 
 			<a id="trier"   href="SERVEUR/trier.php" >  <input type="button"  value="Ordre alphabétique"    class="boutonTrier" /></a> 

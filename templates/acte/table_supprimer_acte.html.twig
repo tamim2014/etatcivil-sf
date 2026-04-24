@@ -1,0 +1,28 @@
+<table>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Numéro</th>
+        <th>Préfecture</th>
+        <th></th>
+    </tr>
+
+    {% for acte in actes %}
+         {# <tr id="ligne-{{ acte.id }}"> #}
+            <td>{{ acte.nom }}</td>
+            <td>{{ acte.prenom }}</td>
+            <td>{{ acte.acte }}</td>
+            <td>{{ acte.prefecture }}</td>
+
+            <td>
+                  {# <a href="{{ path('acte_supprimer', { id: acte.id }) }}" #}
+                  <a href="{{ path('acte_supprimer') }}" 
+                   class="boutonSupprimer"
+                   {# onclick="event.preventDefault(); supprimerActe({{ acte.id }});" #}
+                   >
+                    Supprimer
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

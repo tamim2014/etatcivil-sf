@@ -11,7 +11,7 @@ final class AccueilController extends AbstractController
     #[Route('/accueil', name: 'app_accueil')]
     public function index(): Response
     {
-        $message = "Pour trouver un document, entrer ci-haut, son numero, ou son nom";
+        $message = "Pour trouver un document, entrer ci-haut, son numéro, ou son nom";
 
         //return $this->render('accueil/index.html.twig', [
         return $this->render('accueil.html.twig', [

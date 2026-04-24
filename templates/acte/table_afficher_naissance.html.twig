@@ -1,0 +1,24 @@
+<table class="couleurPoliceTable">
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Numéro</th>
+        <th>Préfecture</th>
+        <th></th>
+    </tr>
+
+    {% for ligne in rows %}
+        <tr>
+            <td>{{ ligne.nom }}</td>
+            <td>{{ ligne.prenom }}</td>
+            <td>{{ ligne.acte }}</td>
+            <td>{{ ligne.prefecture }}</td>
+            <td>
+                <a href="{{ path('afficher_acte', { id: ligne.ID }) }}"
+                   onclick="return ouvrePop(this.href);">
+                    Afficher
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
