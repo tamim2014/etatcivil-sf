@@ -91,15 +91,19 @@ th
 {
  color:white ;
  background: green;	/*   #558C89;  ✍️ */	
- border-radius:8px;
- -webkit-border-radius:8px;
- -moz-border-radius:8px;
+ border-radius:4px;
+ -webkit-border-radius:4px;
+ -moz-border-radius:4px;
  box-shadow: 7px 6px 15px #333;
 
+}
+th:first-child{
+	border-radius:4px 4px 4px 0;
 } 
+	
 /* ⚠️ Table lectureBD.php: voir aussi Table accueil.php sur slide.css pour les table à l'interieur du panel */
 
-/table.color_line tr:nth-child(2n+1) td  { 
+table.color_line tr:nth-child(2n+1) td  { 
     color: Peru ; 
     background:silver !important; /*  #f7f7f9    ✍️*/
 	 border-radius:8px;

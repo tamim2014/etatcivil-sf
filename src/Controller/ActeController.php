@@ -13,7 +13,7 @@ use App\Repository\ActeRepository;
 
 class ActeController extends AbstractController
 {  
-   //1. Le controleur qui affiche la table colonne_afficher_naissance
+   //1. Le controleur qui affiche la table table_afficher_naissance
    #[Route('/table/naissance', name: 'table_naissance')]
     public function colonneNaissance(Request $request, Connection $conn): Response
     {

@@ -8,23 +8,19 @@
      ✅ Dépendances de l'include accueil_prefecture.html.twig 
     <link rel="stylesheet" href="{{ asset('css/slide.css') }}" title="Style_du_Slide_pageDaccueil">
     <link rel="stylesheet" href="{{ asset('css/prefecture.css') }}" title="boutons_Sous_Le_Slide">
-    <link rel="stylesheet" href="{{ asset('css/accueil_commandes_panel.css') }}" >
-    
-    
+    <link rel="stylesheet" href="{{ asset('css/commandes_panel.css') }}" >
 {% endblock %}
+
 {% block javascripts %}
     {{ parent() }}
     <!-- ✅ Pour les messages - Boite de dialogue et les Popup -->
     <script src="{{ asset('js/dialogueBox.js') }}"></script>
     <!-- ✅ Ouverture du panel -->
-   {# <script src="{{ asset('js/jquery.js') }}"></script> #}
+    <script src="{{ asset('js/jquery.js') }}"></script> 
     <!-- ✅ Dépendances de l'include accueil_prefecture.html.twig -->
-    
     <script src="{{ asset('js/capture_items.js') }}"></script>
     <script src="{{ asset('js/accueil_liens_colonne5.js') }}"></script>
-    
     <script src="{{ asset('js/accueil_commandes_panel.js') }}"></script> 
-    
 {% endblock %}
 
 {% block body %}
