@@ -15,8 +15,8 @@
 	
 	    // Afficher une table en fonction du bouton cliqué
             $(document).ready(function(){
-				 // 1. Ouvreture du panel
-                 $("#flip").click(function(){ $("#panel").slideToggle("slow");}); 
+				 // 1. Ouvreture du panel: $("#panel").fadeToggle("200"); fait moins l'accordeon⚠️[ça danse trop avec slideToggle(slow);]
+                 $("#flip").click(function(){ $("#panel").fadeToggle("200");}); 
 				 // 2. Chargement des tables dans le panel
 				 $(' a#rectif, a#zima , a#print_ , a#trier ').click(function(e){ 
                     $('#panel').load($(this).attr('href'));  // //$('#panel').load('/tablesupprimer');
