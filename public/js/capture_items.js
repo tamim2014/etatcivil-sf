@@ -24,7 +24,9 @@
 		}
         function captureCombo(prfctr) { 
             if (prfctr == "") { 
-			     document.getElementById("panel").innerHTML = ""; return; 
+			     alert("Vous n avez pas encore choisit de prefecture !");
+			     document.getElementById("panel").innerHTML = ""; 
+				 return; 
 			} else { 
                 instanceXMLHttpRequest();
                 //1. On prend la table relative à la prefecture capturée
@@ -33,8 +35,10 @@
                 
 				xmlhttp.send(); 
 				//2. On charge la table dans le #panel
-				xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { 
-				  document.getElementById("panel").innerHTML = xmlhttp.responseText;}
+				xmlhttp.onreadystatechange = function() { 
+				    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { 
+				       document.getElementById("panel").innerHTML = xmlhttp.responseText; 
+					}
 				};
             }
         }

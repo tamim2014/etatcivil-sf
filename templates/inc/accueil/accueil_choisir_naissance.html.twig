@@ -1,3 +1,10 @@
+{% block javascripts %}
+	<script src="{{ asset('js/jquery.js') }}"></script> 
+	<script src="{{ asset('js/capture_items.js') }}"></script>
+	<script src="{{ asset('js/accueil_commandes_panel.js') }}"></script> 
+{% endblock %}
+
+
 <select onchange="captureCombo(this.value)">
 
     <optgroup label="Ngazidja">
