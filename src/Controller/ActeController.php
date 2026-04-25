@@ -18,6 +18,7 @@ use Doctrine\DBAL\Connection;
 class ActeController extends AbstractController
 {  
    //1. Le controleur qui affiche la table table_afficher_naissance
+   /*
    #[Route('/table/naissance', name: 'table_naissance')]
     public function colonneNaissance(Request $request, Connection $conn): Response
     {
@@ -33,10 +34,35 @@ class ActeController extends AbstractController
             'prefecture' => $pref,
         ]);
     }
+    */
+
+    #[Route('/table/naissance', name: 'table_naissance')]
+    public function colonneNaissance(Request $request, Connection $conn): Response
+    {
+        // 1. On récupère la préfecture envoyée en GET ?p=...
+        $pref = $request->query->get('p');
+
+        // 2. On stocke cette préfecture dans la session
+        $session = $request->getSession();
+        $session->set('v', $pref);
+
+        // 3. On récupère les lignes filtrées
+        $rows = $conn->fetchAllAssociative(
+            'SELECT * FROM liste WHERE prefecture = :p',
+            ['p' => $pref]
+        );
+
+        return $this->render('acte/table_afficher_naissance.html.twig', [
+            'rows' => $rows,
+            'prefecture' => $pref,
+        ]);
+    }
+
+    
 
 
    // 2. Le controleur qui affiche la table supprimer
-
+    /*
     #[Route('/actes', name: 'acte_liste')]
     public function liste(ActeRepository $repo): Response
     {
@@ -46,8 +72,33 @@ class ActeController extends AbstractController
             'actes' => $actes 
         ]);
     }
+	*/
+
+    #[Route('/actes', name: 'acte_liste')]
+    public function liste(ActeRepository $repo, Request $request): Response
+    {
+        // 1. On récupère la préfecture stockée dans la session
+        $session = $request->getSession();
+        $prefecture = $session->get('v');
+
+        // 2. Si la préfecture existe, on filtre
+        if ($prefecture) {
+            $actes = $repo->findBy(['prefecture' => $prefecture]);
+        } else {
+            // Si aucune préfecture n'est définie, on renvoie une liste vide
+            $actes = [];
+        }
+
+        return $this->render('acte/table_supprimer_acte.html.twig', [
+            'actes' => $actes 
+        ]);
+    }
 
 
+
+
+
+	
 
     // 3. Le controleur qui supprime un document
 
