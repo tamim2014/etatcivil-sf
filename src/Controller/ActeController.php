@@ -17,27 +17,10 @@ use Doctrine\DBAL\Connection;
 
 class ActeController extends AbstractController
 {  
-   //1. Le controleur qui affiche la table table_afficher_naissance
-   /*
-   #[Route('/table/naissance', name: 'table_naissance')]
-    public function colonneNaissance(Request $request, Connection $conn): Response
-    {
-        $pref = $request->query->get('p');
-
-        $rows = $conn->fetchAllAssociative(
-            'SELECT * FROM liste WHERE prefecture = :p',
-            ['p' => $pref]
-        );
-
-        return $this->render('acte/table_afficher_naissance.html.twig', [
-            'rows' => $rows,
-            'prefecture' => $pref,
-        ]);
-    }
-    */
+   //I. Le controleur qui affiche la table table_afficher_naissance
 
     #[Route('/table/naissance', name: 'table_naissance')]
-    public function colonneNaissance(Request $request, Connection $conn): Response
+    public function tableAfficherNaissance(Request $request, Connection $conn): Response
     {
         // 1. On récupère la préfecture envoyée en GET ?p=...
         $pref = $request->query->get('p');
@@ -58,24 +41,21 @@ class ActeController extends AbstractController
         ]);
     }
 
-    
-
-
-   // 2. Le controleur qui affiche la table supprimer
-    /*
-    #[Route('/actes', name: 'acte_liste')]
-    public function liste(ActeRepository $repo): Response
+   // Ibis. Le controleur qui affiche le document (dans un popup)
+       #[Route('/lienafficher', name: 'lien-afficher')]
+    public function lienAfficherNaissance(Request $request, Connection $conn): Response
     {
-        $actes = $repo->findAll();
+        return $this->render('acte/table_afficher_naissance.html.twig', [
 
-        return $this->render('acte/table_supprimer_acte.html.twig', [
-            'actes' => $actes 
         ]);
     }
-	*/
 
-    #[Route('/actes', name: 'acte_liste')]
-    public function liste(ActeRepository $repo, Request $request): Response
+
+    
+   // II. Le controleur qui affiche la table supprimer
+
+    #[Route('/tablesupprimer', name: 'table-supprimer')]
+    public function tableSupprimer(ActeRepository $repo, Request $request): Response
     {
         // 1. On récupère la préfecture stockée dans la session
         $session = $request->getSession();
@@ -94,16 +74,10 @@ class ActeController extends AbstractController
         ]);
     }
 
-
-
-
-
-	
-
-    // 3. Le controleur qui supprime un document
+    // IIbis. Le controleur qui supprime un document
 
     #[Route('/acte/supprimer', name: 'acte_supprimer', methods: ['POST'])]
-    public function supprimer(
+    public function btnSupprimer( 
         Acte $acte,
         EntityManagerInterface $em,
         Request $request

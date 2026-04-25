@@ -19,7 +19,7 @@
                  $("#flip").click(function(){ $("#panel").slideToggle("slow");}); 
 				 // 2. Chargement des tables dans le panel
 				 $(' a#rectif, a#zima , a#print_ , a#trier ').click(function(e){ 
-                    $('#panel').load($(this).attr('href'));  // //$('#panel').load('/actes');
+                    $('#panel').load($(this).attr('href'));  // //$('#panel').load('/tablesupprimer');
                     e.preventDefault();
                  });
                  //$('.tab a:first').trigger('click'); // Affiche la page1 par defaut
