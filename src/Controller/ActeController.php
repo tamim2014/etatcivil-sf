@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ActeRepository;
 use Doctrine\DBAL\Connection;
+use App\Repository\ListeRepository;
+
 
 
 
@@ -89,27 +91,26 @@ class ActeController extends AbstractController
 
     // IIbis. Le controleur qui supprime un document
 
-    #[Route('/acte/supprimer', name: 'acte_supprimer', methods: ['POST'])]
-    public function btnSupprimer( 
-        Acte $acte,
-        EntityManagerInterface $em,
-        Request $request
-    ): JsonResponse {
+    #[Route('/supprimer/{id}', name: 'supprimer_acte', methods: ['POST'])]
+    public function supprimer(int $id, ListeRepository $repo, EntityManagerInterface $em)
+    {
+        $ligne = $repo->find($id);
 
-        $role = $request->getSession()->get('user_role');
-
-        if ($role !== 'admin') {
-            return new JsonResponse([
-                'error' => 'Vous n’avez pas les droits'
-            ], 403);
+        if (!$ligne) {
+            return $this->json(['success' => false, 'message' => 'Introuvable'], 404);
         }
 
-        $em->remove($acte);
+        $em->remove($ligne);
         $em->flush();
 
-       // return new JsonResponse(['success' => true]);
-       return $this->render('accueil/acte/table_supprimer_acte.html.twig', [
-       ]);
+        return $this->json(['success' => true], 200);
     }
+
+
+
+
+
+
+
 
 }

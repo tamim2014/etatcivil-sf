@@ -1,5 +1,11 @@
+{% block javascripts %}
+    <script src="{{ asset('js/accueil_commandes_panel.js') }}" defer></script> 
+{% endblock %}
+
+
 <table >
     <tr>
+        <th>ID</th>
         <th>Nom</th>
         <th>Prénom</th>
         <th>Numéro</th>
@@ -8,20 +14,21 @@
     </tr>
 
     {% for acte in actes %}
-         {# <tr id="ligne-{{ acte.id }}"> #}
+          <tr id="ligne-{{ acte.id }}"> 
+        {# <tr> #}
+            <td>{{ acte.id }}</td>
             <td>{{ acte.nom }}</td>
             <td>{{ acte.prenom }}</td>
             <td>{{ acte.acte }}</td>
             <td>{{ acte.prefecture }}</td>
 
             <td>
-                  {# <a href="{{ path('acte_supprimer', { id: acte.id }) }}" #}
-                  <a href="{{ path('acte_supprimer') }}" 
-                   class="boutonSupprimer"
-                   {# onclick="event.preventDefault(); supprimerActe({{ acte.id }});" #}
-                   >
-                    Supprimer
-                </a>
+            <button class="btn-supprimer" data-id="{{ acte.id }}">
+                Supprimer
+            </button>
+
+
+
             </td>
         </tr>
     {% endfor %}

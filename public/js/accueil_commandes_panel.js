@@ -23,8 +23,61 @@
                     e.preventDefault();
                  });
                  //$('.tab a:first').trigger('click'); // Affiche la page1 par defaut
-            });
-	
+           
+
+		    // btn Supprimer
+			/*
+			$(".boutonSupprimer").on("click", function(e) {
+				    //console.log("Clic détecté !");
+					e.preventDefault();
+
+					let id = $(this).data("id");
+
+					$.post("/acte/supprimer/" + id, function(reponse) {
+						if (reponse === "ok") {
+							$("#ligne-" + id).remove();
+						}
+					});
+				});
+			*/
+
+	        });
+
+			// Suppression de document
+             $(document).on('click', '.btn-supprimer', function (e) {
+    e.preventDefault(); // Empêche tout comportement par défaut
+
+    let id = $(this).data('id');
+    let ligne = $(this).closest('tr');
+
+    // Confirmation
+		if (!confirm("Voulez-vous vraiment supprimer cet élément ?")) {
+			return;
+		}
+
+		$.ajax({
+			url: '/supprimer/' + id,
+			type: 'POST',
+			dataType: 'json',
+			success: function (response) {
+				if (response.success) {
+					ligne.fadeOut(300, function () {
+						$(this).remove();
+					});
+					alert("Suppression effectuée !");
+				} else {
+					alert("Erreur : " + response.message);
+				}
+			},
+			error: function (xhr) {
+					console.log("Erreur AJAX :", xhr.status, xhr.responseText);
+					// On ne met PAS d'alert ici tant qu'on n'a pas vérifié le code HTTP
+				}
+			});
+		});
+
+
+
 
 	
         // Solution AJAX: Une fonction pour chaque table => 4 fonctions

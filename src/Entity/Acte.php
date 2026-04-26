@@ -29,8 +29,9 @@ class Acte
 
     public function getId(): ?int
     {
-        return $id;
+        return $this->id;
     }
+
 
     public function getNom(): ?string
     {
