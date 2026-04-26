@@ -35,20 +35,33 @@ class ActeController extends AbstractController
             ['p' => $pref]
         );
 
-        return $this->render('acte/table_afficher_naissance.html.twig', [
+        return $this->render('accueil/acte/table_afficher_naissance.html.twig', [
             'rows' => $rows,
             'prefecture' => $pref,
         ]);
     }
 
    // Ibis. Le controleur qui affiche le document (dans un popup)
-       #[Route('/lienafficher', name: 'lien-afficher')]
-    public function lienAfficherNaissance(Request $request, Connection $conn): Response
+    #[Route('/lienafficher/{id}', name: 'lien-afficher')]
+    public function lienAfficherNaissance(int $id, Connection $conn): Response
     {
-        return $this->render('acte/table_afficher_naissance.html.twig', [
+        // Vérification ID
+        if ($id <= 0) {
+            throw $this->createNotFoundException("ID invalide");
+        }
 
+        // Récupération des données
+        $donnees = $conn->fetchAssociative("SELECT * FROM liste WHERE ID = ?", [$id]);
+
+        if (!$donnees) {
+            throw $this->createNotFoundException("Aucun enregistrement trouvé");
+        }
+
+        return $this->render('output/afficher.html.twig', [
+            'donnees' => $donnees
         ]);
     }
+
 
 
     
@@ -69,7 +82,7 @@ class ActeController extends AbstractController
             $actes = [];
         }
 
-        return $this->render('acte/table_supprimer_acte.html.twig', [
+        return $this->render('accueil/acte/table_supprimer_acte.html.twig', [
             'actes' => $actes 
         ]);
     }
@@ -95,7 +108,7 @@ class ActeController extends AbstractController
         $em->flush();
 
        // return new JsonResponse(['success' => true]);
-       return $this->render('acte/table_supprimer_acte.html.twig', [
+       return $this->render('accueil/acte/table_supprimer_acte.html.twig', [
        ]);
     }
 

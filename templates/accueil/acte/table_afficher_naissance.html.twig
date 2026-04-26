@@ -17,12 +17,12 @@
             <td>{{ ligne.acte }}</td>
             <td>{{ ligne.prefecture }}</td>
             <td>
-			   {#
-                <a href="{{ path('afficher_acte', { id: ligne.ID }) }}"
-                   onclick="return ouvrePop(this.href);">
-                    Afficher
-                </a>
-				#}
+			   
+            <a href="{{ path('lien-afficher', { id: ligne.ID }) }}"
+            onclick="return ouvrePop(this.href);">
+                Afficher
+            </a>
+				
             </td>
         </tr>
     {% endfor %}

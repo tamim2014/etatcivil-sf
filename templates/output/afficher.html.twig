@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Acte de naissance</title>
+
+    <link href="{{ asset('css/afficher.css') }}" rel="stylesheet" />
+
+    <style>
+        input { border:none; }
+    </style>
+</head>
+
+<body>
+<div id="wrap">
+
+<table border="1" align="center" style="border-collapse:collapse" bordercolor="#111111" width="80%">
+
+    <tr>
+        <td align="center" valign="top">
+            <h2>UNION DES COMORES</h2>
+            <h6>Unité-Solidarité-Développement</h6>
+            <h3>MINISTERE DE L'INTERIEUR</h3>
+
+            <img src="{{ asset('img/armoirie.png') }}" />
+
+            <h4>Préfecture de:</h4>
+            <input type="text" style="margin-left:-95px; margin-bottom:0;" value="{{ donnees.prefecture }}">
+            <hr style="margin-top:0;" />
+
+            <h4>Centre d'Etat Civil de:</h4>
+            <input type="text" style="margin-left:-95px; margin-bottom:0;" value="{{ donnees.centretatcivil }}">
+            <hr style="margin-top:0;" />
+
+            <div style="margin-left:10px;">
+                <h6 align="left" style="line-height:0;">
+                    <input type="text" style="margin-left:65px;" value="{{ donnees.registre }}"><br>
+                    Registre N° ------------------------------
+                </h6>
+
+                <h6 align="left">
+                    <p style="line-height:0;">
+                        <input type="text" style="margin-left:65px;" value="{{ donnees.acte }}"><br>
+                        Acte N° -----------------------------------
+                    </p>
+
+                    <p style="line-height:0;">
+                        <input type="text" style="margin-left:65px;" value="{{ donnees.date_acte }}"><br>
+                        Du -----------------------------------------
+                    </p>
+                </h6>
+            </div>
+        </td>
+
+        <td align="left" rowspan="2">
+            <h1 align="center" style="color:white; text-shadow:2px 2px 4px #1D702D;">ACTE DE NAISSANCE</h1>
+
+            <div style="margin-left:10px;">
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:85px;" value="{{ donnees.naissance_jour_moi }}"><br>
+                    Le -------------------------------------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:85px;" value="{{ donnees.naissance_an }}"><br>
+                    et l'an ---------------------------------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:20px;" value="{{ donnees.naissance_heure }}">
+                    <input type="text" style="margin-left:30px;" value="{{ donnees.naissance_minuite }}"><br>
+                    à --------------------------heure(s) --------------------------------minute(s)<br><br>
+                </p>
+
+                <p style="line-height:0; margin-top:3em;">
+                    <input type="text" style="margin-left:120px;" value="{{ donnees.naissance_nom_prenom }}"><br>
+                    est né(e) ------------------------------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ donnees.naissance_lieu }}"><br>
+                    à ---------------------------------------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ donnees.naissance_sexe }}"><br>
+                    du sexe -------------------------------------------------------------------------<br><br><br>
+                </p>
+
+                <p style="line-height:0; margin-top:3em;">
+                    <input type="text" style="margin-left:120px;" value="{{ donnees.pere_nom_prenom }}"><br>
+                    fils(fille de) --------------------------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ donnees.pere_datenaisance }}"><br>
+                    né(e) le ------------------------------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ donnees.pere_lieunaissance }}"><br>
+                    à ---------------------------------------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ donnees.pere_profession }}"><br>
+                    Profession ---------------------------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ donnees.pere_villederesidence }}"><br>
+                    Demeurant à -----------------------------------------------------------------<br>
+                </p>
+
+                <p align="left" style="margin-top:3em;">
+                    <p style="line-height:0;">
+                        <input type="text" style="margin-left:120px;" value="{{ donnees.mere_nom_prenom }}"><br>
+                        et de ----------------------------------------------------------------------------<br>
+                    </p>
+
+                    <p style="line-height:0;">
+                        <input type="text" style="margin-left:120px;" value="{{ donnees.mere_datenaisance }}"><br>
+                        né(e) le -------------------------------------------------------------------------<br>
+                    </p>
+
+                    <p style="line-height:0;">
+                        <input type="text" style="margin-left:120px;" value="{{ donnees.mere_lieunaissance }}"><br>
+                        à ---------------------------------------------------------------------------------<br>
+                    </p>
+
+                    <p style="line-height:0;">
+                        <input type="text" style="margin-left:120px;" value="{{ donnees.mere_profession }}"><br>
+                        Profession ---------------------------------------------------------------------<br>
+                    </p>
+
+                    <p style="line-height:0; padding-bottom:1em;">
+                        <input type="text" style="margin-left:120px;" value="{{ donnees.mere_villederesidenc }}"><br>
+                        Demeurant à -----------------------------------------------------------------
+                    </p>
+                </p>
+
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="center" rowspan="2">
+            <h4>Naissance de:</h4><br>
+
+            <input type="text" style="margin-left:-95px; margin-bottom:0;" value="{{ donnees.nom }}">
+            <hr style="margin-top:0;" />
+
+            <input type="text" style="margin-left:-95px; margin-bottom:0;" value="{{ donnees.prenom }}">
+            <hr style="margin-top:0;" /><br>
+        </td>
+    </tr>
+
+    <tr height="20px">
+        <td rowspan="2">
+            <div style="margin-left:10px; line-height:0;">
+
+                <h4 align="center">Déclaration faite par:</h4>
+
+                <input type="text" style="margin-left:85px;" value="{{ donnees.declaration_faite_par }}">
+                <br>----------------------------------------------------------------------------------------------------------------------<br>
+
+                <p>
+                    <input type="text" style="margin-left:85px;" value="{{ donnees.datejugement }}">
+                    <br>----------------------------------------------------------------------------------------------------------------------<br>
+                </p>
+
+                <h4 align="center">Déclaration reçue le:</h4>
+                <input type="text" style="margin-left:85px;" value="{{ donnees.declaration_recue_pa }}">
+                <br>----------------------------------------------------------------------------------------------------------------------<br>
+
+                <br>----------------------------------------------------------------------------------------------------------------------<br><br>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="left">
+            <h4 align="center">Pour acte certifié conforme:</h4>
+
+            <div style="margin-left:10px;">
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:95px;" value="{{ donnees.delivre_a }}"><br>
+                    Délivré à ----------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:95px;" value="{{ donnees.delivre_le }}"><br>
+                    Le ------------------------------------------------<br>
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:95px;" value="{{ donnees.delivre_an }}"><br>
+                    L'an ----------------------------------------------<br>
+                </p>
+            </div>
+
+            <h4 align="center">L'officier de l'Etat Civil:</h4>
+        </td>
+    </tr>
+
+</table>
+
+</div>
+</body>
+</html>
