@@ -51,7 +51,7 @@
     let ligne = $(this).closest('tr');
 
     // Confirmation
-		if (!confirm("Voulez-vous vraiment supprimer cet élément ?")) {
+		if (!confirm("Voulez-vous vraiment supprimer cet élément(double clics) ?")) {
 			return;
 		}
 
