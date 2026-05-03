@@ -1,0 +1,67 @@
+<ul style="margin-left:28%;">
+	  <li class="dropdown" >
+		<button class="dropbtn btnHover btn-accueil"><a  href="{{ path('app_accueil') }}" >Accueil</a></button>
+      </li>	  
+	  <li class="dropdown" >
+		<button class="dropbtn"> Acte de naissance</button>
+		<div class="dropdown-content">
+			<div id="aside"  > 
+				<ul class="navigation"  >	
+					<li class="toggleSubMenu"> <span >Grande-Comores</span>
+						<ul class="subMenu">
+						  <li><a href="#" class="island1">Moroni-Bambao</a></li>
+						  <li><a href="#" class="island1  data-island1">Hambou</a></li> 
+						  <li><a href="#" class="island1">Mbadjini-Ouest</a></li>
+						  <li><a href="#" class="island1">Mbadjini-Est</a></li>
+						  <li><a href="#" class="island1">Oichili-Dimani</a></li>
+						  <li><a href="#" class="island1">Hamahamet-Mboinkou</a></li>
+						  <li><a href="#" class="island1">Mitsamiouli-Mboude</a></li>
+						  <li><a href="#" class="island1">Itsandra-Hamanvou</a></li>
+						</ul>
+					</li>				
+					<li class="toggleSubMenu"><span>Anjouan</span>
+						  <ul class="subMenu">						
+							<li><a href="#" class="island1">Mutsamudu</a></li>
+							<li><a href="#" class="island1">Ouani</a></li>
+							<li><a href="#" class="island1">Domoni</a></li>
+							<li><a href="#" class="island1">Sima</a></li>
+						  </ul>
+					</li>
+					<li class="toggleSubMenu"><span>Moheli</span>
+						  <ul class="subMenu" >						
+							<li><a href="#" class="island1">Fomboni</a></li>
+							<li><a href="#" class="island1">Nioumachoi</a></li>
+							<li><a href="#" class="island1">Djando</a></li>
+						  </ul>
+					</li>
+
+				</ul> 
+                {# <a href="{{ path('ecrire') }}" style="border-top:1px solid #bbb;">Nouvel Acte naissance</a> #} 				
+                <a href="#" style="border-top:1px solid #bbb;">Nouvel Acte naissance</a> 				
+			</div>
+			
+		</div>
+	  </li>
+	  <li class="dropdown"> 
+		<button class="dropbtn">Acte de mariage</button>
+		<div class="dropdown-content">
+		  <a href="#">Nouvel Acte mariage</a>
+		  <a href="#">Liste Acte mariage</a>
+		</div>
+	  </li>
+	  <li class="dropdown">
+		 <button class="dropbtn">Acte de divorce</button>
+		 <div class="dropdown-content">
+		   <a href="#">Nouvel Acte de divorce</a>
+		   <a href="#">Liste Acte de divorce</a>
+		 </div>	 
+	  </li>
+	  <li class="dropdown">
+		 <button class="dropbtn">Acte de decès</button> 
+		<div class="dropdown-content">
+		   <a href="#">Nouvel Acte de decès </a>
+		   <a href="#">Liste Acte de decès </a>
+		 </div>	
+         		 
+	   </li>
+	</ul>

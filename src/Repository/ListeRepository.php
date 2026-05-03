@@ -12,4 +12,15 @@ class ListeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Liste::class);
     }
+    // Pour tableNaissance.html.twig dans lectureBD.html.twig
+    // src/Repository/ListeRepository.php
+    public function findByPrefecture(string $prefecture): array
+    {
+        return $this->createQueryBuilder('l')
+            ->andWhere('l.prefecture = :pref')
+            ->setParameter('pref', $prefecture)
+            ->getQuery()
+            ->getResult();
+    }
+
 }

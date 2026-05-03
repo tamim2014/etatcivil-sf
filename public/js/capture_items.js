@@ -22,6 +22,9 @@
                      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                 }
 		}
+
+		// accueil.php <=> accueil.html.twig
+
         function captureCombo(prfctr) { 
             if (prfctr == "") { 
 			     alert("Vous n avez pas encore choisit de prefecture !");
@@ -43,43 +46,55 @@
             }
         }
 
-		
-		
-		function popup_lectureBD2_(url){
-			window.open(
-				url,
-				'Popup',
-				'scrollbars=1,resizable=1,height=409,width=918,top=258,left=175'
-			);
+		// lectureBD.php <=> lectureBD.html.twig
+
+		function captureSousMenu(prfctr) { 
+    
+			//console.log("Capture OK :", prfctr); //test
+            console.log("Capture OK :", prfctr);
+
+
+			if (prfctr === "") { 
+				document.getElementById("yivawo").innerHTML = "";
+				return;
+			}
+
+			instanceXMLHttpRequest(); // création de xmlhttp
+
+			// 1. Appel de la route Symfony
+			xmlhttp.open("GET", "/tablenaissance/"+prfctr, true);
+			//xmlhttp.open("GET", "/tablenaissance?p=" + prfctr, true);
+
+
+			// 2. Envoi
+			xmlhttp.send();
+
+			// 3. Réception
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+					document.getElementById("yivawo").innerHTML = xmlhttp.responseText;
+				}
+			};
 		}
+		/*
+		$(document).ready(function(){
+			//topMenu.php(sous-menu): : ACTIVATION DES LIENS DU SOUS-MENU accordeon(les prefectures)
+			$("ul li.dropdown div.dropdown-content div#aside ul.navigation li.toggleSubMenu  ul.subMenu li a").click(function() {// jQuery capture clic 
+				captureSousMenu(this.textContent); // jQuery transmet la capture à AJAX
+			});
+		});
+		*/
+
+            
+		$(document).on("click", "a.island1", function (e) {
+			e.preventDefault();
+			captureSousMenu($(this).data("island1"));
+		});
         
 
 
-	
-   /**
-    * 
-	* i fo virer tous ça . c'1 truc de l'ancien projet archivé
-	*
-	* L'AFFICHAGE DE LA TABLE DANS "lectureBD.php" SE FAIT EN 3 ETAPES:
-    *
-    * ETAPE1: jQuery capture le clic sur la prefecture
-	           $("... ul.subMenu li a").click(...);
-    * ETAPE2: jQuery transmet la prefecture(prfctr) cliqu�e � AJAX en lan�a cette fonction: 
-	           captureSousMenu(this.textContent);
-    *
-    * ETAPE3: AJAX execute la fontion pour afficher la table relative � la prefecture transmise:
-    *         xmlhttp.open(...url de la table...);
-	*         xmlhttp.send();
-    *         document.getElementById("yivawo").innerHTML = xmlhttp.responseText;	 
-	*
-    */	 
-		 
-	$(document).ready(function(){
-		//topMenu.php(sous-menu): : ACTIVATION DES LIENS DU SOUS-MENU accordeon(les prefectures)
-		$("ul li.dropdown div.dropdown-content div#aside ul.navigation li.toggleSubMenu  ul.subMenu li a").click(function() {// jQuery capture clic 
-			captureSousMenu(this.textContent); // jQuery transmet la capture à AJAX
-		});
-	});
+
+
 
 
 	/**
@@ -97,7 +112,15 @@
 	function closeDialog() {
 		document.getElementById("dialogBox").style.display = "none";
 	}
-
+    
+	
+	function popup_lectureBD2_(url){
+		window.open(
+			url,
+			'Popup',
+			'scrollbars=1,resizable=1,height=409,width=918,top=258,left=175'
+		);
+	}
 	
 
 

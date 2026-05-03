@@ -1,0 +1,33 @@
+<table class="couleurPoliceTable">
+    <tr class="tetetable">
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Numéro</th>
+        <th>Préfecture</th>
+        <th>Imprimer</th>
+        <th>Afficher</th>
+    </tr>
+
+    {% for ligne in lignes %}
+        <tr>
+            <td>{{ ligne.nom }}</td>
+            <td>{{ ligne.prenom }}</td>
+            <td>{{ ligne.acte }}</td>
+            <td>{{ ligne.prefecture }}</td>
+
+            <td>
+                <span class="icon-btn"
+                      onclick="window.location='{{ path('imprimer', { id: ligne.id }) }}'">
+                    🖨️
+                </span>
+            </td>
+
+            <td>
+                <span class="icon-btn"
+                      onclick="ouvrePop('{{ path('afficher', { id: ligne.id }) }}')">
+                    👁️
+                </span>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
