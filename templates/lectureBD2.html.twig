@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/template.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/accueil22.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slide.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dropdown.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/lectureBD.css') }}" > 
+    <link rel="stylesheet" href="{{ asset('css/responsivelectureBD.css') }}">   
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script src="{{ asset('js/jquery.js') }}" defer></script> 
+	<script src="{{ asset('js/capture_items.js') }}" defer></script> <!-- ça n'a rien à faire là ! -->	   
+    <script src="{{ asset('js/lectureBD.js') }}" defer></script>    
+{% endblock %}
+
+
+
+{% block body %}
+
+<header>  
+		<div class="en-tete">	
+			<div class="hollowTop"   > <input type="image"  				   
+			   <input type=image src="{{ asset('img/drapeau.png') }}" align="left" class="flag" style="width:30%; height:100%; filter:brightness(80%);" />
+			   <p class="text_header" style="padding-left:50%;">OFFICE   <br> D'&Eacute;TAT CIVIL </p>			  
+			</div> 				
+		</div>		
+		<div class="menu topnav"  id="myTopnav"> 
+				 {% include 'inc/accueil/accueil_menucentral.html.twig'  %}
+		</div>
+</header>
+
+    <!-- on remplace float:left sur les contenu par display:flex sur le conteneur  -->
+	<div class="contenu" style="display:flex; margin-bottom:0;"  >
+       		<!-- LE PANNEAU DE GAUCHE :  -->
+		<div class="colonne_laterale"  >
+			<aside class="aside1" >
+			    <form action ="" method="POST" name="form1" >
+					<table class="tablegauche" style="height:25em;"> 
+						 <caption  style="caption-side:top; box-shadow: 0 20px 65px #cdbe9f inset;  "> 
+							<font color="gray" style="line-height:2;">
+								<h3> UNION DES COMORES  </h3>
+								<h6> Unit&eacute;-Solidarit&eacute;-D&eacute;veloppement  </h6>
+								<h4> MINISTERE DE L'INTERIEUR  </h4>
+							</font>
+							<img src="{{ asset('img/armoirie.png') }}" style="z-index:3;  margin-left:40%; margin-right:40%; width:20%;  "  />
+						 </caption>
+							 <tr > <td id="recherchedocument">RECHERCHE DE DOCUMENT</td></tr>
+							 <tr><td> <font color="#cdbe9f"><b>Search by</b></font> number<br/> <input style="width:50%;" id="recherchenum" type="text" name="acte_" pattern=".{1,}"  > </td></tr> 
+							 <tr><td> <font color="#cdbe9f"><b>Search by</b></font> name    <br/> <input style="width:50%;" id="recherchenom" type="text" name="nom_"  > </td></tr>
+							 <tr><td style="padding-top:1em;">
+								 <textarea class="t_area" style="font-size:1em;" name="myTextBox" cols="24" rows="4"> {{ message }} </textarea>
+							 <br/><input class="btnHover" type="submit" name="envoie" value="Chercher"  style="background:transparent ; color:#111; padding:.3em 3.3em; margin:1em auto; " />
+							 </td></tr>
+					</table>
+				</form>
+			</aside>
+		</div>
+		<!-- LE PANNEAU DE DROITE :  -->
+		<div class="colonne_contenu" style="padding:0;">
+			<aside class="aside2">
+				<table  class="tabledroite" style="padding-top:0;">
+					 <tr><td > 
+                         <div class="mnayvawo" style="height:auto;"><button  class="boutoyahemnayivawo"> Acte extrait de la pr&eacute;fecture de:<span id="wilaya_" style="color:#000066;  font-size: 17px; font-style: italic; font-family: \"Times New Roman\", Georgia, Serif;" > <?php  echo  $p; ?></span> </button>   </div>					 
+						 <div class="line1" style="width:98%; height:5px; margin:auto;"></div>
+
+						 <div class="mnayvawo mnayvawo2 scrolbar scrolbarSearch" style="height:auto; max-height:28.5em !important; padding:5.8em; overflow-y:auto;">
+                            <?php 
+							//✅ 4. Appel du traitement/affichage(selon le filtre recuperé): Une table
+							if(!empty($_GET['num'])){include("backend/lectureBD2_searchPlayBack.php");}
+							else if(!empty($_GET['nom'])) {include("backend/lectureBD2_searchPlayBackByName.php");}
+
+							?>						 
+                         </div> 						 
+						 
+					 </td></tr>
+				</table>
+            </aside>
+        </div>			
+	</div> <!-- fin  <div class="contenu"  >  -->
+
+<div class="footer" style="text-align:left;">
+    <span><span style="color:#555;">2026 © -</span> <span style="color:#333;">Etat civil</span></span>
+</div>
+
+{% endblock %}

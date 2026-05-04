@@ -65,6 +65,44 @@ final class LireController extends AbstractController
             'lignes' => $lignes
         ]);
     }
+    // Resultats du moteurs de recherche
+	#[Route('/resultengine', name: 'app_resultengine')]
+    public function moteurDeRecherche(RequestStack $requestStack): Response
+    {
+        $message = "Pour trouver un document, entrer ci-haut, son numéro, ou son nom";
 
+        // Récupération de la session
+        $session = $requestStack->getSession();
+
+        // Lecture de la valeur 'pref'
+        $s = $session->get('pref', ''); // '' = valeur par défaut si rien en session
+
+
+        return $this->render('lectureBD2.html.twig', [
+            's' => $s,
+			'message' => $message, 
+           
+        ]);
+    }
+
+    // Les 2 includes de lectureBD2.html.twig
+    #[Route('/resultbynumber', name: 'app_resultbynumber')]
+    public function resultatByNumber(RequestStack $requestStack): Response
+    {
+
+        return $this->render('lire/resultBuNumber.html.twig', [
+           
+        ]);
+    }
+    
+    
+    #[Route('/resultbyname', name: 'app_resultbyname')]
+    public function resultsByName(RequestStack $requestStack): Response
+    {
+
+        return $this->render('lire/resultsByName.html.twig', [
+           
+        ]);
+    }
 
 }

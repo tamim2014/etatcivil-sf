@@ -1,17 +1,20 @@
     /**
 	 *
-	 * 1. Capture de la prefecture/Quelle table charger: function captureCombo(prfctr)
+	 * 1. Accueil: Capture de la prefecture/Quelle table charger -> function captureCombo(prfctr)
 	 *
-	 * 2. Chargement de la table "Afficher" : function captureCombo(prfctr)
+	 *    Chargement de la table "Afficher" : function captureCombo(prfctr)
 	 *    
 	 *    Page source: accueil_choisir_naissance.html.twig 
 	 *
 	 *    Le chargement des autres tables(Supprimer, Rectifier,Imprimer,Trier), 
 	 *    est fait en jQuery par  #######  accueil.commandes_panel.js ##########
 	 *    Page source: accueil_prefecture.html.twig 
-	 *    
-	 * 3. Gestion des dialog message
 	 *
+	 * 2.lectureBD: Capture de la prefecture/Quelle table charger -> function captureSousMenu(prfctr) 
+	 *   appelée par jQuery à la ligne85
+	 *
+	 * 3. Gestion des dialog message
+     *	 
 	 */
       
 		
@@ -23,7 +26,7 @@
                 }
 		}
 
-		// accueil.php <=> accueil.html.twig
+		// 1. accueil.php <=> accueil.html.twig
 
         function captureCombo(prfctr) { 
             if (prfctr == "") { 
@@ -46,29 +49,24 @@
             }
         }
 
-		// lectureBD.php <=> lectureBD.html.twig
+		// 2. lectureBD.php <=> lectureBD.html.twig
 
 		function captureSousMenu(prfctr) { 
     
-			//console.log("Capture OK :", prfctr); //test
+			//COPILOTE -> Un check avant l'appel mais ...Pourquoi mon console.log ne m'affiche rien? ni mon console.error
             console.log("Capture OK :", prfctr);
-
-
 			if (prfctr === "") { 
 				document.getElementById("yivawo").innerHTML = "";
+				console.error("Prefecture manquant"); // Juste un check de debug avant l'Appel de la route
+				console.log(prfctr); // si tu vois undefinined sur l'UI(l'ecran)-> tu as trouvé le probleme
 				return;
 			}
-
 			instanceXMLHttpRequest(); // création de xmlhttp
-
 			// 1. Appel de la route Symfony
 			xmlhttp.open("GET", "/tablenaissance/"+prfctr, true);
 			//xmlhttp.open("GET", "/tablenaissance?p=" + prfctr, true);
-
-
 			// 2. Envoi
 			xmlhttp.send();
-
 			// 3. Réception
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -82,18 +80,16 @@
 			$("ul li.dropdown div.dropdown-content div#aside ul.navigation li.toggleSubMenu  ul.subMenu li a").click(function() {// jQuery capture clic 
 				captureSousMenu(this.textContent); // jQuery transmet la capture à AJAX
 			});
+			
 		});
 		*/
-
-            
 		$(document).on("click", "a.island1", function (e) {
 			e.preventDefault();
 			captureSousMenu($(this).data("island1"));
 		});
         
 
-
-
+    // 3. Gestion des dialogBox
 
 
 
@@ -113,7 +109,7 @@
 		document.getElementById("dialogBox").style.display = "none";
 	}
     
-	
+	// obsolete. Remplacée par ouvrePop()
 	function popup_lectureBD2_(url){
 		window.open(
 			url,
