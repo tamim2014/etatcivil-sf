@@ -39,7 +39,7 @@
        		<!-- LE PANNEAU DE GAUCHE :  -->
 		<div class="colonne_laterale"  >
 			<aside class="aside1" >
-			    <form action ="" method="POST" name="form1" >
+			    <form action="{{ path('app_resultengine') }}" method="POST" name="form1" >
 					<table class="tablegauche" style="height:25em;"> 
 						 <caption  style="caption-side:top; box-shadow: 0 20px 65px #cdbe9f inset;  "> 
 							<font color="gray" style="line-height:2;">
@@ -65,7 +65,12 @@
 			<aside class="aside2">
 				<table  class="tabledroite" style="padding-top:0;">
 					 <tr><td > 
-                         <div class="mnayvawo" style="height:auto;"><button  class="boutoyahemnayivawo"> Acte extrait de la pr&eacute;fecture de:<span id="wilaya_" style="color:#000066;  font-size: 17px; font-style: italic; font-family: \"Times New Roman\", Georgia, Serif;" > <?php  echo  $p; ?></span> </button>   </div>					 
+                         <div class="mnayvawo" style="height:auto;">
+						       <button  class="boutoyahemnayivawo"> 
+							      Acte extrait de la préfecture de:
+								  <span id="wilaya_" style="color:#000066;  font-size: 17px; font-style: italic; font-family: \"Times New Roman\", Georgia, Serif;" > <?php  echo  $p; ?></span> 
+							    </button>   
+					     </div>					 
 						 <div class="line1" style="width:98%; height:5px; margin:auto;"></div>
 
 						 <div class="mnayvawo mnayvawo2 scrolbar scrolbarSearch" style="height:auto; max-height:28.5em !important; padding:5.8em; overflow-y:auto;">

@@ -7,10 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack; // recupere la session
-
 use App\Repository\ListeRepository;// pour injecter le repo
-
 use Doctrine\DBAL\Connection;
+use App\Service\SearchEngine;
 
 
 
@@ -65,27 +64,54 @@ final class LireController extends AbstractController
             'lignes' => $lignes
         ]);
     }
+
+
+
+
+
+
     // Resultats du moteurs de recherche
-	#[Route('/resultengine', name: 'app_resultengine')]
-    public function moteurDeRecherche(RequestStack $requestStack): Response
+    // On va appeler le service SearchEngine.php
+    #[Route('/resultengine', name: 'app_resultengine')]
+    public function moteurDeRecherche(
+        Request $request,
+        RequestStack $requestStack,
+        SearchEngine $searchEngine
+    ): Response
     {
-        $message = "Pour trouver un document, entrer ci-haut, son numéro, ou son nom";
+        // On récupère les saisies du formulaire transmis (par le service)
+        $numero = $request->request->get('acte_');
+        $nom    = $request->request->get('nom_');
+        dump($numero, $nom); die;
+        // On appelle le service
+        $result = $searchEngine->handleSearch($numero, $nom);
 
-        // Récupération de la session
+        // Si le service renvoie une redirection
+        if ($result instanceof \Symfony\Component\HttpFoundation\RedirectResponse) {
+            return $result;
+        }
+
+        // Sinon, on récupère le message
+        $message = $result['message'];
+
+        // Lecture session (comme avant)
         $session = $requestStack->getSession();
-
-        // Lecture de la valeur 'pref'
-        $s = $session->get('pref', ''); // '' = valeur par défaut si rien en session
-
+        $s = $session->get('pref', '');
 
         return $this->render('lectureBD2.html.twig', [
             's' => $s,
-			'message' => $message, 
-           
+            'message' => $message,
         ]);
     }
 
+
+
+
+
+
+
     // Les 2 includes de lectureBD2.html.twig
+	
     #[Route('/resultbynumber', name: 'app_resultbynumber')]
     public function resultatByNumber(RequestStack $requestStack): Response
     {
