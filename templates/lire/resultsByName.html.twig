@@ -1,3 +1,45 @@
+<h2>Résultats pour le nom : {{ nom }}</h2>
+
+<table class="resultat_moteur couleurPoliceTableResultat">
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Acte numéro</th>
+        <th>Edit</th>
+        <th>Imprimer</th>
+        <th>Afficher</th>
+    </tr>
+
+    {% for row in resultats %}
+        <tr>
+            <td>{{ row.ID }}</td>
+            <td>{{ row.nom }}</td>
+            <td>{{ row.prenom }}</td>
+            <td>{{ row.acte }}</td>
+
+            <td>
+                <a href="modifier_.php?n={{ row.ID }}&nom_={{ row.nom }}&prenom_={{ row.prenom }}&acte_={{ row.acte }}">
+                    Modifier
+                </a>
+            </td>
+
+            <td>
+                <a href="imprimer.php?n={{ row.ID }}">Imprimer</a>
+            </td>
+
+            <td>
+                <a href="afficher.php?n={{ row.ID }}" onclick="return ouvrePop(this.href);">
+                    Afficher
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="7">Aucun résultat trouvé</td>
+        </tr>
+    {% endfor %}
+</table>
 {# 
     remplace backend/lectureBD2_searchPlayBackByName.php#
     sera inclu par lectureBD2.html.twig

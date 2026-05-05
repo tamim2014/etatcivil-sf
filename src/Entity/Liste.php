@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Table(name: "liste")]
 #[ORM\Entity(repositoryClass: App\Repository\ListeRepository::class)]
+
 class Liste
 {
     #[ORM\Id]

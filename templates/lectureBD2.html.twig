@@ -67,21 +67,21 @@
 					 <tr><td > 
                          <div class="mnayvawo" style="height:auto;">
 						       <button  class="boutoyahemnayivawo"> 
-							      Acte extrait de la préfecture de:
-								  {# TODO:Revoir ici #}
-								  <span id="wilaya_"> <?php  echo  $p; ?></span> 
+							      Acte extrait de la préfecture de:	  
+								    <span id="wilaya_"> 
+								        {{ s }} {# TODO:Revoir ici <?php  echo  $p; ?> #}
+								    </span> 
 							    </button>   
 					     </div>					 
 						 <div class="line1" style="width:98%; height:5px; margin:auto;"></div>
 
 						 <div class="mnayvawo mnayvawo2 scrolbar scrolbarSearch">
-                            <?php 
-							//✅ 4. Appel du traitement/affichage(selon le filtre recuperé): Une table
-							// TODO: Revoir ici
-							if(!empty($_GET['num'])){include("backend/lectureBD2_searchPlayBack.php");}
-							else if(!empty($_GET['nom'])) {include("backend/lectureBD2_searchPlayBackByName.php");}
-
-							?>						 
+							{% if template %}
+								{% include template %}
+							{% else %}
+								<p>Aucun filtre reçu.</p>
+							{% endif %}	
+											 
                          </div> 						 
 						 
 					 </td></tr>

@@ -21,11 +21,9 @@ final class LireController extends AbstractController
     {
         $message = "Pour trouver un document, entrer ci-haut, son numéro, ou son nom";
 
-        // Récupération de la session
-        $session = $requestStack->getSession();
-
-        // Lecture de la valeur 'pref'
-        $s = $session->get('pref', ''); // '' = valeur par défaut si rien en session
+        // Affichage "Prefecture"
+        $session = $requestStack->getSession(); // Récupération de la session
+        $s = $session->get('pref', ''); // Lecture de la valeur 'pref'| '' = valeur par défaut si rien en session
 
 
         return $this->render('lectureBD.html.twig', [
@@ -66,10 +64,6 @@ final class LireController extends AbstractController
     }
 
 
-
-
-
-
     // Resultats du moteurs de recherche
     // On va appeler le service SearchEngine.php
     #[Route('/resultengine', name: 'app_resultengine')]
@@ -79,56 +73,92 @@ final class LireController extends AbstractController
         SearchEngine $searchEngine
     ): Response
     {
-        // On récupère les saisies du formulaire transmis (par le service)
+        // 1. On récupère les saisies du formulaire
         $numero = $request->request->get('acte_');
         $nom    = $request->request->get('nom_');
-        //dump($numero, $nom); die;
-        // On appelle le service
+
+        // 2. On appelle le service
         $result = $searchEngine->handleSearch($numero, $nom);
 
-        // Si le service renvoie une redirection
+        // 3. Si le service renvoie une redirection
         if ($result instanceof \Symfony\Component\HttpFoundation\RedirectResponse) {
             return $result;
         }
 
-        // Sinon, on récupère le message
+        // 4. Sinon, on récupère le message
         $message = $result['message'];
 
-        // Lecture session (comme avant)
+        // 5. On détermine quel sous-template afficher
+        $template = null;
+
+        if (!empty($numero)) {
+            $template = 'lire/resultByNumber.html.twig';
+        } elseif (!empty($nom)) {
+            $template = 'lire/resultsByName.html.twig';
+        }
+
+        // 6. Affichage "Prefecture"
         $session = $requestStack->getSession();
         $s = $session->get('pref', '');
 
         return $this->render('lectureBD2.html.twig', [
             's' => $s,
             'message' => $message,
+            'template' => $template,
+            'numero' => $numero,
+            'nom' => $nom
         ]);
     }
-
-
-
-
-
 
 
     // Les 2 includes de lectureBD2.html.twig
 	
     #[Route('/resultbynumber', name: 'app_resultbynumber')]
-    public function resultatByNumber(RequestStack $requestStack): Response
+    public function resultatByNumber(RequestStack $requestStack, Connection $connection): Response
     {
+        // 1. Récupération GET
+        $request = $requestStack->getCurrentRequest();
+        $num = $request->query->get('num', '');
+        $nom = $request->query->get('nom', ''); // Pas la peine ici
 
-        return $this->render('lire/resultBuNumber.html.twig', [
-           
+        // 2. Requête SQL (DBAL)
+        $sql = "SELECT * FROM liste WHERE acte = :num";
+
+        $resultats = $connection->executeQuery($sql, [
+            'num' => $num
+        ])->fetchAllAssociative();
+
+        // 3. Envoi à Twig
+        return $this->render('lire/resultByNumber.html.twig', [
+            'resultats' => $resultats,
+            'num' => $num,
+            'nom' => $nom
         ]);
     }
+
+
     
     
     #[Route('/resultbyname', name: 'app_resultbyname')]
-    public function resultsByName(RequestStack $requestStack): Response
+    public function resultsByName(RequestStack $requestStack, Connection $connection): Response
     {
+        // 1. Récupération GET
+        $request = $requestStack->getCurrentRequest();
+        $nom = $request->query->get('nom', '');
 
+        // 2. Requête SQL (DBAL)
+        $sql = "SELECT * FROM liste WHERE nom = :nom";
+
+        $resultats = $connection->executeQuery($sql, [
+            'nom' => ltrim($nom)
+        ])->fetchAllAssociative();
+
+        // 3. Envoi à Twig
         return $this->render('lire/resultsByName.html.twig', [
-           
+            'resultats' => $resultats,
+            'nom' => $nom
         ]);
     }
+
 
 }
