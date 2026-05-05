@@ -82,7 +82,7 @@ final class LireController extends AbstractController
         // On récupère les saisies du formulaire transmis (par le service)
         $numero = $request->request->get('acte_');
         $nom    = $request->request->get('nom_');
-        dump($numero, $nom); die;
+        //dump($numero, $nom); die;
         // On appelle le service
         $result = $searchEngine->handleSearch($numero, $nom);
 

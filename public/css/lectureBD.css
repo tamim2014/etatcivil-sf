@@ -147,7 +147,27 @@
 			line-height: 1.4;
 		}
 		
-/*
+		/* Table resultat de recherche */
+		 .scrolbarSearch{
+			 height:auto; 
+			 max-height:28.5em !important; 
+			 padding:5.8em; 
+			 overflow-y:auto;
+		 }		
+	    /* Table resultat de recherche par noms */
+		 .scrolbarSearch::-webkit-scrollbar-track {
+			  background: inherit; /*  couleur du canal */		  
+		 }
+		 
+		/* Affichage de la prefecture(en haut de la table): lectureBD.php, lectureBD2.php */
+		#wilaya_{
+			color:#000066;  
+			font-size: 17px; 
+			font-style: italic; 
+			font-family: "Times New Roman", Georgia, serif;
+		}
+		
+/*  ---------------------------------------------------------
    	Astuce pour tester si le css est bien chargé 
 	et pour identifier tous les composants de la page 
 	

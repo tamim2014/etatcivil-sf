@@ -68,14 +68,16 @@
                          <div class="mnayvawo" style="height:auto;">
 						       <button  class="boutoyahemnayivawo"> 
 							      Acte extrait de la préfecture de:
-								  <span id="wilaya_" style="color:#000066;  font-size: 17px; font-style: italic; font-family: \"Times New Roman\", Georgia, Serif;" > <?php  echo  $p; ?></span> 
+								  {# TODO:Revoir ici #}
+								  <span id="wilaya_"> <?php  echo  $p; ?></span> 
 							    </button>   
 					     </div>					 
 						 <div class="line1" style="width:98%; height:5px; margin:auto;"></div>
 
-						 <div class="mnayvawo mnayvawo2 scrolbar scrolbarSearch" style="height:auto; max-height:28.5em !important; padding:5.8em; overflow-y:auto;">
+						 <div class="mnayvawo mnayvawo2 scrolbar scrolbarSearch">
                             <?php 
 							//✅ 4. Appel du traitement/affichage(selon le filtre recuperé): Une table
+							// TODO: Revoir ici
 							if(!empty($_GET['num'])){include("backend/lectureBD2_searchPlayBack.php");}
 							else if(!empty($_GET['nom'])) {include("backend/lectureBD2_searchPlayBackByName.php");}
 
