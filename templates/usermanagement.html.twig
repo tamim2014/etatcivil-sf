@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ asset('css/accueil22.css') }}">
     <link rel="stylesheet" href="{{ asset('css/slide.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dropdown.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/factorisation.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/flextablegauche.css') }}">
     <link rel="stylesheet" href="{{ asset('css/usermanagement.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
@@ -36,12 +37,6 @@
 {% endfor %}
 
 
-
-
-
-
-
-
 <header>
     <div class="en-tete">
         <div class="hollowTop">
@@ -64,7 +59,7 @@
 				  -- Problème de l'espace en bas
 				  -- ⚠️il faut ajouter "min-height:100% !important;" sur .tablegauche
 				-->  
-				<table class="tablegauche" style="min-height:100% !important;"> 
+				<table class="tablegauche tablegauche2" style="min-height:100% !important;"> 
 					<!-- <caption  style="caption-side:top; box-shadow: 0 0 65px #cdbe9f inset, 0 0 20px #beae8c inset, 0 0 5px #816f47;  ">  -->
 					<caption  style="caption-side:top; box-shadow: 0 20px 65px #cdbe9f inset; padding:0 8px;"> 
 						<font color="gray" style="line-height:2;">
@@ -142,7 +137,7 @@
 
 		<!-- 👁️ 3. Afficher tous les utilisateurs( officiers d'état civil)  -->
 		
-		<div class="form-container">
+		<div class="form-container table1">
 			<h2>Liste des officiers</h2>
 			<table class="officiers scrolbar" cellpadding="5" style="border:1px solid #c4c4c4;">
 				<tr>
@@ -164,8 +159,11 @@
 </div>  <!-- Fin div.contenu -->
 
 	
-<div class="footer" style="text-align:left;">
-    <span><span style="color:#555;">2026 © -</span> <span style="color:#333;">Etat civil</span></span>
+<div class="footer">
+	<p>
+		<span>2026 &copy; -</span> 
+		<span>Etat civil</span>
+	</p>
 </div>
 
 

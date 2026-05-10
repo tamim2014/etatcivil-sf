@@ -98,10 +98,17 @@ body {
 
 .footer {
     background-color: #74AFAD; 
-    text-align: left;
-	
-	margin-top:0;
-	padding:0.5em 1em; 
+    text-align: left; 	
+}
+.footer p{
+	margin:0;
+	padding:1em 1em 0; 
+}
+.footer p span:first-child{
+   color:#555;
+}
+.footer p span:last-child{
+   color:#333; 
 }
 
 /* Nouvelle façon de fixer le footer */

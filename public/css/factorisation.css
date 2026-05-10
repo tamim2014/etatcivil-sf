@@ -1,0 +1,56 @@
+/*
+ * Garge-Les-Gonnesse: 08.06.26
+ * On nettoie tout le syle qui traine dans les elts
+ * On le met ici
+ *
+ *  ✔️ index.php 
+ *  ✔️ Tasks: le faire aussi pour les autres fichiers
+ * 
+ */
+ 
+   .flag{
+	   /* width:30%; */
+	   height:100%; 
+	   filter:brightness(80%);
+   }
+   .text_header{
+	   padding-top:2%; 
+	   padding-left:45%;
+   }
+   .tablegauche{
+	   margin-bottom:0; 
+	   padding-bottom:0;
+	   background:#ECECEA;
+   }
+   .tablegauche tr td .t_area{ /* textarea */
+	 font-size:1rem; /* 1em */ 
+   }
+   .aside1 .tablegauche caption{
+	   caption-side:top; 
+	   box-shadow: 0 20px 65px #cdbe9f inset; /*  box-shadow: 0 0 65px #cdbe9f inset, 0 0 20px #beae8c inset, 0 0 5px #816f47; */
+	   padding:0 8px;
+   }
+   .aside1 .tablegauche caption font{
+	   line-height:2;
+   }
+   .aside1 .tablegauche caption font h4{
+	   line-height:1.3 !important;
+   }
+   .aside1 .tablegauche caption font h4{
+	   line-height:1.3 !important;
+   }
+   .aside1 .tablegauche caption img{
+	   /* transform: translate(200%, 0); */
+	   z-index:3;  
+	   margin-left:40%; 
+	   margin-right:40%; 
+	   margin-bottom:1%; 
+	   width:20%;
+   }
+   #valider_{
+	   background: #ECECEA ;
+	   color:#111;
+	   padding:.3em 3.3em;
+	   margin:1em auto 0;
+	   border-radius:4px; 
+   }

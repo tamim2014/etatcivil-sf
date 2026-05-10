@@ -83,11 +83,12 @@
 			
 		});
 		*/
+		/*************
 		$(document).on("click", "a.island1", function (e) {
 			e.preventDefault();
 			captureSousMenu($(this).data("island1"));
 		});
-        
+        */
 
     // 3. Gestion des dialogBox
 
