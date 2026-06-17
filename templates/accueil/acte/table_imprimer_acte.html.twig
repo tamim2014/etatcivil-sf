@@ -19,7 +19,14 @@
             <td>{{ acte.prefecture }}</td>
 
             <td>
+              <!-- 
                 <button class="boutonImprimer" data-id="{{ acte.id }}">
+                    Imprimer
+                </button>
+              -->
+
+                <button class="boutonImprimer" data-id="{{ acte.id }}"
+                        onclick="window.location='{{ path('imprimer', { id: acte.ID }) }}'">
                     Imprimer
                 </button>
             </td>
