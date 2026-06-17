@@ -1,0 +1,28 @@
+
+<table >
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Numéro</th>
+        <th>Préfecture</th>
+        <th></th>
+    </tr>
+
+    {% for acte in actes %}
+          <tr id="ligne-{{ acte.id }}"> 
+        {# <tr> #}
+            <td>{{ acte.id }}</td>
+            <td>{{ acte.nom }}</td>
+            <td>{{ acte.prenom }}</td>
+            <td>{{ acte.acte }}</td>
+            <td>{{ acte.prefecture }}</td>
+
+            <td>
+                <button class="btn-rectifier" data-id="{{ acte.id }}">
+                    Rectifier
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

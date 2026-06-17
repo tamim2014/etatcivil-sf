@@ -63,11 +63,8 @@ class ActeController extends AbstractController
             'donnees' => $donnees
         ]);
     }
-
-
-
-    
-   // II. Le controleur qui affiche la table supprimer
+  
+   // II. Le controleur qui affiche la table Supprimer
 
     #[Route('/tablesupprimer', name: 'table-supprimer')]
     public function tableSupprimer(ActeRepository $repo, Request $request): Response
@@ -104,6 +101,28 @@ class ActeController extends AbstractController
         $em->flush();
 
         return $this->json(['success' => true], 200);
+    }
+
+    // III. Le controleur qui affiche la table Rectifier
+
+    #[Route('/tablerectifier', name: 'table-rectifier')]
+    public function tableRecifier(ActeRepository $repo, Request $request): Response
+    {
+        // 1. On récupère la préfecture stockée dans la session
+        $session = $request->getSession();
+        $prefecture = $session->get('v');
+
+        // 2. Si la préfecture existe, on filtre
+        if ($prefecture) {
+            $actes = $repo->findBy(['prefecture' => $prefecture]);
+        } else {
+            // Si aucune préfecture n'est définie, on renvoie une liste vide
+            $actes = [];
+        }
+
+        return $this->render('accueil/acte/table_rectifier_acte.html.twig', [
+            'actes' => $actes 
+        ]);
     }
 
 
