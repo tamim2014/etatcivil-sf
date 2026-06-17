@@ -16,6 +16,7 @@ class ListeRepository extends ServiceEntityRepository
     // src/Repository/ListeRepository.php
     public function findByPrefecture(string $prefecture): array
     {
+
         return $this->createQueryBuilder('l')
             ->andWhere('l.prefecture = :pref')
             ->setParameter('pref', $prefecture)

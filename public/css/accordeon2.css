@@ -1,6 +1,5 @@
-   
-			
 		/* #########################################  LE MENU ACCORDEON ################################################### */
+		
   
 		#aside{
 	         float:left;	     
@@ -17,7 +16,8 @@
 		  		  
 		}
 		.navigation .subMenu {		  
-		  background: #49505a url(subMenu.png) 0 0 repeat-x;
+		  /* background: #49505a url(subMenu.png) 0 0 repeat-x; */
+		  background: #49505a;
 		  font-size: .9em;
 		  margin: 0 t; padding: 0 ;
 		  border-bottom: 1px solid #666;

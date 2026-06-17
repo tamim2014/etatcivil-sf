@@ -1,3 +1,4 @@
+
 <table class="couleurPoliceTable">
     <tr class="tetetable">
         <th>Nom</th>
@@ -18,17 +19,19 @@
 
             <td>
                 <span class="icon-btn"
-                      onclick="window.location='{{ path('imprimer', { id: ligne.id }) }}'">
+                      onclick="window.location='{{ path('imprimer', { id: ligne.ID }) }}'">
                     🖨️
                 </span>
             </td>
 
             <td>
                 <span class="icon-btn"
-                      onclick="ouvrePop('{{ path('afficher', { id: ligne.id }) }}')">
+                      onclick="ouvrePop('{{ path('afficher', { id: ligne.ID }) }}')">
                     👁️
                 </span>
             </td>
         </tr>
     {% endfor %}
 </table>
+
+

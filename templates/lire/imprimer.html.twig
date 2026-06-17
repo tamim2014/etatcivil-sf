@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Acte de naissance</title>
+
+    <style>
+        input { border:none; }
+        @page { margin: 0; }
+        body { margin: .5em 0 0 0 !important; }
+
+        @media (max-width: 768px) {
+            body {
+                min-width:98vw !important;
+                min-height:98vh !important;
+            }
+        }
+    </style>
+</head>
+
+<body onload="window.print()">
+<div id="wrap">
+
+<table border="1" align="center" style="border-collapse:collapse" bordercolor="#111111" width="80%">
+
+    <tr>
+        <td align="center" valign="top">
+
+            <h2>UNION DES COMORES</h2>
+            <h6>Unité - Solidarité - Développement</h6>
+            <h3>MINISTÈRE DE L'INTÉRIEUR</h3>
+            <img src="{{ asset('img/armoirie.png') }}" />
+
+            <h4>Préfecture de :</h4>
+            <input type="text" style="margin-left:-95px;" value="{{ ligne.prefecture }}">
+            <hr>
+
+            <h4>Centre d'État Civil de :</h4>
+            <input type="text" style="margin-left:-95px;" value="{{ ligne.centretatcivil }}">
+            <hr>
+
+            <div style="margin-left:10px;">
+                <h6 align="left" style="line-height:0;">
+                    <input type="text" style="margin-left:65px;" value="{{ ligne.registre }}"><br>
+                    Registre N° ------------------------------
+                </h6>
+
+                <h6 align="left">
+                    <p style="line-height:0;">
+                        <input type="text" style="margin-left:65px;" value="{{ ligne.acte }}"><br>
+                        Acte N° -----------------------------------
+                    </p>
+
+                    <p style="line-height:0;">
+                        <input type="text" style="margin-left:65px;" value="{{ ligne.date_acte }}"><br>
+                        Du -----------------------------------------
+                    </p>
+                </h6>
+            </div>
+
+        </td>
+
+        <td align="left" rowspan="2">
+            <h1 align="center" style="color:white; text-shadow:2px 2px 4px #1D702D;">ACTE DE NAISSANCE</h1>
+
+            <div style="margin-left:10px;">
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:85px;" value="{{ ligne.naissance_jour_moi }}"><br>
+                    Le --------------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:85px;" value="{{ ligne.naissance_an }}"><br>
+                    et l'an ---------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:30px;" value="{{ ligne.naissance_minuite }}">
+                    <input type="text" style="margin-left:20px;" value="{{ ligne.naissance_heure }}"><br>
+                    à ---------------- heure(s) ---------------- minute(s)
+                </p>
+
+                <p style="line-height:0; margin-top:3em;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.naissance_nom_prenom }}"><br>
+                    est né(e) -------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.naissance_lieu }}"><br>
+                    à ----------------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.naissance_sexe }}"><br>
+                    du sexe --------------------------------------------------
+                </p>
+
+                <p style="line-height:0; margin-top:3em;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.pere_nom_prenom }}"><br>
+                    fils(fille) de ---------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.pere_datenaisance }}"><br>
+                    né(e) le --------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.pere_lieunaissance }}"><br>
+                    à ----------------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.pere_profession }}"><br>
+                    Profession ----------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.pere_villederesidence }}"><br>
+                    Demeurant à -------------------------------------------
+                </p>
+
+                <p style="line-height:0; margin-top:3em;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.mere_nom_prenom }}"><br>
+                    et de -----------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.mere_datenaisance }}"><br>
+                    né(e) le --------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.mere_lieunaissance }}"><br>
+                    à -----------------------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.mere_profession }}"><br>
+                    Profession ----------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:120px;" value="{{ ligne.mere_villederesidenc }}"><br>
+                    Demeurant à ------------------------------------------
+                </p>
+
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="center" rowspan="2">
+            <h4>Naissance de :</h4>
+            <input type="text" style="margin-left:-95px;" value="{{ ligne.nom }}">
+            <hr>
+            <input type="text" style="margin-left:-95px;" value="{{ ligne.prenom }}">
+            <hr>
+        </td>
+    </tr>
+
+    <tr>
+        <td rowspan="2">
+            <div style="margin-left:10px; line-height:0;">
+                <h4 align="center">Déclaration faite par :</h4>
+
+                <input type="text" style="margin-left:85px;" value="{{ ligne.declaration_faite_par }}"><br>
+                ---------------------------------------------------------------
+
+                <p>
+                    <input type="text" style="margin-left:85px;" value="{{ ligne.datejugement }}"><br>
+                    ---------------------------------------------------------------
+                </p>
+
+                <h4 align="center">Déclaration reçue le :</h4>
+                <input type="text" style="margin-left:85px;" value="{{ ligne.declaration_recue_pa }}"><br>
+                ---------------------------------------------------------------
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="left">
+            <h4 align="center">Pour acte certifié conforme :</h4>
+
+            <div style="margin-left:10px;">
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:95px;" value="{{ ligne.delivre_a }}"><br>
+                    Délivré à -------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:95px;" value="{{ ligne.delivre_le }}"><br>
+                    Le ---------------------------------------------
+                </p>
+
+                <p style="line-height:0;">
+                    <input type="text" style="margin-left:95px;" value="{{ ligne.delivre_an }}"><br>
+                    L'an -------------------------------------------
+                </p>
+            </div>
+
+            <h4 align="center">L'officier de l'État Civil :</h4>
+        </td>
+    </tr>
+
+</table>
+
+</div>
+</body>
+</html>

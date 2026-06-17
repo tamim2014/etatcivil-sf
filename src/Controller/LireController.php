@@ -10,12 +10,15 @@ use Symfony\Component\HttpFoundation\RequestStack; // recupere la session
 use App\Repository\ListeRepository;// pour injecter le repo
 use Doctrine\DBAL\Connection;
 use App\Service\SearchEngine;
+use Doctrine\Persistence\ManagerRegistry;
+
 
 
 
 
 final class LireController extends AbstractController
 {
+    // 1.Affiche la page lectureBD
     #[Route('/lire', name: 'app_lire')]
     public function lectureBD(RequestStack $requestStack): Response
     {
@@ -31,7 +34,11 @@ final class LireController extends AbstractController
             'message' => $message,
         ]);
     }
+
+    // 2. Charge la table
     /*
+     * Version: Repository Doctrine
+     * 👉 C’est du Doctrine ORM via un Repository personnalisé.
      * Ce controleur a 3 missions:
      * 
      * 1. Récuperer le filtre "prefecture"
@@ -41,7 +48,7 @@ final class LireController extends AbstractController
      * 3. Faire un select(construire un findBy) par ce filtre 
      *    (pour que son template puisse remplir la table)
      * 
-     */
+  
     #[Route('/tablenaissance/{pr}', name: 'tablenaissance')]
     public function tableNaissance(
         string $pr,
@@ -62,6 +69,102 @@ final class LireController extends AbstractController
             'lignes' => $lignes
         ]);
     }
+    */
+
+    // Version DBAL
+    #[Route('/tablenaissance/{pr}', name: 'tablenaissance')]
+    public function tableNaissance(
+        string $pr,
+        RequestStack $requestStack,
+        ManagerRegistry $doctrine
+    ): Response {
+
+        // 1. Nettoyage du filtre
+        $pref = trim($pr);
+
+        // 2. Session
+        $session = $requestStack->getSession();
+        $session->set('pref', $pref);
+
+        // 3. Connexion DBAL
+        $conn = $doctrine->getConnection();
+
+        // 4. Requête SQL brute
+        $sql = "SELECT * FROM liste WHERE prefecture = :pref";
+
+        // 5. Exécution
+        $lignes = $conn->fetchAllAssociative($sql, [
+            'pref' => $pref
+        ]);
+
+        // 6. Affichage
+        return $this->render('lire/tableNaissance.html.twig', [
+            'lignes' => $lignes
+        ]);
+    }
+
+   // Impression
+    #[Route('/imprimer/{id}', name: 'imprimer')]
+    public function imprimer(
+        int $id,
+        ManagerRegistry $doctrine
+    ): Response {
+
+        // 1. Vérification
+        if ($id <= 0) {
+            return new Response("<h4>ID invalide : Veuillez saisir le document avant de l'imprimer ⚠️</h4>");
+        }
+
+        // 2. Connexion DBAL
+        $conn = $doctrine->getConnection();
+
+        // 3. Requête SQL brute
+        $sql = "SELECT * FROM liste WHERE ID = :id";
+        $donnees = $conn->fetchAssociative($sql, ['id' => $id]);
+
+        // 4. Si aucun résultat
+        if (!$donnees) {
+            return new Response("<h4>Aucun document trouvé pour l'ID $id</h4>");
+        }
+
+        // 5. Affichage Twig
+        return $this->render('lire/imprimer.html.twig', [
+            'ligne' => $donnees
+        ]);
+    }
+
+    // Affichage
+    #[Route('/afficher/{id}', name: 'afficher')]
+    public function afficher(
+        int $id,
+        ManagerRegistry $doctrine
+    ): Response {
+
+        // 1. Vérification
+        if ($id <= 0) {
+            return new Response("<h4>ID invalide : Veuillez saisir le document avant de l'afficher ⚠️</h4>");
+        }
+
+        // 2. Connexion DBAL
+        $conn = $doctrine->getConnection();
+
+        // 3. Requête SQL
+        $sql = "SELECT * FROM liste WHERE ID = :id";
+        $donnees = $conn->fetchAssociative($sql, ['id' => $id]);
+
+        // 4. Si aucun résultat
+        if (!$donnees) {
+            return new Response("<h4>Aucun document trouvé pour l'ID $id</h4>");
+        }
+
+        // 5. Affichage Twig
+        return $this->render('lire/afficher.html.twig', [
+            'ligne' => $donnees
+        ]);
+    }
+
+
+
 
 
     // Resultats du moteurs de recherche

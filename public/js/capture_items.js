@@ -63,8 +63,13 @@
 			}
 			instanceXMLHttpRequest(); // création de xmlhttp
 			// 1. Appel de la route Symfony
-			xmlhttp.open("GET", "/tablenaissance/"+prfctr, true);
-			//xmlhttp.open("GET", "/tablenaissance?p=" + prfctr, true);
+			
+            // xmlhttp.open("GET", "http://127.0.0.1:8000/tablenaissance/" + prfctr, true);
+            //  Comment éviter de préciser les host/port ? 
+			xmlhttp.open("GET", baseUrl + "/tablenaissance/"+ prfctr, true);
+           //  Url dynamique: baseUrl  est defini dans lectureBD.html.twig
+
+
 			// 2. Envoi
 			xmlhttp.send();
 			// 3. Réception
@@ -74,15 +79,14 @@
 				}
 			};
 		}
-		/*
+	
 		$(document).ready(function(){
 			//topMenu.php(sous-menu): : ACTIVATION DES LIENS DU SOUS-MENU accordeon(les prefectures)
 			$("ul li.dropdown div.dropdown-content div#aside ul.navigation li.toggleSubMenu  ul.subMenu li a").click(function() {// jQuery capture clic 
 				captureSousMenu(this.textContent); // jQuery transmet la capture à AJAX
-			});
-			
+			});			
 		});
-		*/
+		
 		/*************
 		$(document).on("click", "a.island1", function (e) {
 			e.preventDefault();

@@ -17,13 +17,20 @@
     <script src="{{ asset('js/jquery.js') }}" defer></script> 	   
     <script src="{{ asset('js/lectureBD.js') }}" defer></script>
 	<script src="{{ asset('js/moteurJquery.js') }}" defer></script>
+	<!-- Pour eviter 127.0.0.1/8000 dans l'url (capture_items.js)  - url dynamique -->
+	<script>
+		window.baseUrl = "{{ app.request.getSchemeAndHttpHost() }}";
+	</script>
 	<script src="{{ asset('js/capture_items.js') }}" defer></script> 
+
      
 {% endblock %}
 
 
 
 {% block body %}
+
+
 
 <header>  
 		<div class="en-tete">	
