@@ -125,6 +125,50 @@ class ActeController extends AbstractController
         ]);
     }
 
+    // IV. Le controleur qui affiche la table Imprimer
+
+    #[Route('/tableimprimer', name: 'table-imprimer')]
+    public function tableImprimer(ActeRepository $repo, Request $request): Response
+    {
+        // 1. On récupère la préfecture stockée dans la session
+        $session = $request->getSession();
+        $prefecture = $session->get('v');
+
+        // 2. Si la préfecture existe, on filtre
+        if ($prefecture) {
+            $actes = $repo->findBy(['prefecture' => $prefecture]);
+        } else {
+            // Si aucune préfecture n'est définie, on renvoie une liste vide
+            $actes = [];
+        }
+
+        return $this->render('accueil/acte/table_imprimer_acte.html.twig', [
+            'actes' => $actes 
+        ]);
+    }
+
+    // V. Le controleur qui affiche la table Trier
+
+    #[Route('/tabletrier', name: 'table-trier')]
+    public function tableTrier(ActeRepository $repo, Request $request): Response
+    {
+        // 1. On récupère la préfecture stockée dans la session
+        $session = $request->getSession();
+        $prefecture = $session->get('v');
+
+        // 2. Si la préfecture existe, on filtre
+        if ($prefecture) {
+            $actes = $repo->findBy(['prefecture' => $prefecture]);
+        } else {
+            // Si aucune préfecture n'est définie, on renvoie une liste vide
+            $actes = [];
+        }
+
+        return $this->render('accueil/acte/table_trier_acte.html.twig', [
+            'actes' => $actes 
+        ]);
+    }
+
 
 
 

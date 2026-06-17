@@ -19,8 +19,11 @@
 			<a id="rectif"  href="{{ path('table-rectifier') }}"> <input type="button"  value="Rectifier"  class="boutonRectifier" /></a>
 			
 			
-			<a id="print_"  href="SERVEUR/colonne_imprimer_acte.php" >  <input type="button"  value="Imprimer"    class="boutonImprimer" /></a> 
-			<a id="trier"   href="SERVEUR/trier.php" >  <input type="button"  value="Ordre alphabétique"    class="boutonTrier" /></a> 
+			<!--  <a id="print_"  href="SERVEUR/colonne_imprimer_acte.php" >  <input type="button"  value="Imprimer"    class="boutonImprimer" /></a> -->
+			<a id="print_"  href="{{ path('table-imprimer') }}">  <input type="button"  value="Imprimer"    class="boutonImprimer" /></a> 
+			
+			<!-- <a id="trier"   href="SERVEUR/trier.php" >  <input type="button"  value="Ordre alphabétique"    class="boutonTrier" /></a> -->
+			<a id="trier"   href="{{ path('table-trier') }}" >  <input type="button"  value="Ordre alphabétique"    class="boutonTrier" /></a> 
 
 			<!-- Solution AJAX 
 			<a id="zima"    href="#"  onclick="showSupprimer()> <input type="button"  value="Supprimer"  class="boutonSupprimer" /></a> 
