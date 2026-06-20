@@ -1,0 +1,72 @@
+
+/*
+ * Garge-Les-Gonesse
+ * 06.05.23
+ */
+
+
+/* ✅ Style normal (grand écran) */
+.menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+/* ✅ petit desktop et mobile  */
+@media screen and (max-width: 1000px) {
+	.menu ul {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+    .menu li {
+		text-align: left !important;
+        display: block;
+        width: 100%;
+	    padding:0;
+    }
+	.menu li:first-child { padding-top:1em;}
+	.menu li:last-child { padding-bottom:0;}
+    /* Sous-menus cachés par défaut */
+    .dropdown-content {
+        display: none;
+        position: static;
+    }
+    /* Quand on clique sur le parent → on ouvre */
+    .dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+    /* Le bouton doit pouvoir recevoir le focus */
+	.btn-accueil a{
+		padding-left:0 ;
+	}
+    .dropbtn{
+        width: 100% !important;
+        text-align: left;
+        background: none ; 
+        border: none;
+        font-size: 16px;
+		cursor: pointer;
+        padding: 0;
+		margin:0 !important;
+		transition: background 0.2s ease;
+    }
+	.dropbtn:hover{
+       /* background:#cdbe7f; */
+	}
+	.dropdown:hover .dropbtn{
+		/* Si tvx une couleur sur le .dropbtn apres le hover
+		 * Par exple ça pour garder le hover du btn d'accueil	
+		 
+		   background:#cdbe7f;
+		   
+		 *  
+		 */
+	}
+
+    /* Ajustement après test */
+	.dropdown:last-child{
+		padding-bottom:0 !important;
+	}
+
+}
+
+

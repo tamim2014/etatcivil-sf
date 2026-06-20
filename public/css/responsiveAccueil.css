@@ -66,7 +66,6 @@
         padding: 0;
         cursor: pointer;
     }
-
     .dropbtn {
         width: 100%;
         text-align: left;
@@ -96,25 +95,325 @@
 		}
 
 		/*  ✅ 3. Rendre .colonne_contenu flexible */
-		    .colonne_contenu {
-				flex: 1 1 400px; /* largeur minimale */
-				max-width: 100%;
-				box-sizing: border-box;
-			}
+		.colonne_contenu {
+			flex: 1 1 400px; /* largeur minimale */
+			max-width: 100%;
+			box-sizing: border-box;
+		}
+		
+		
+		
 			
 		/* 🎯 On ajuste les dimensions( surtout .tablegauche) 	*/
 		
 		/* @media (max-width: 1000px) { */
 		@media screen and (max-width: 1000px) {
-			#formSource{ width:100%; height:40vh; } 
+			.en-tete{ 
+			    display:none;
+			}
+			#formSource{ 
+			    width:100%;
+               	height:40vh; 
+			} 
 			.colonne_laterale{ 
-			    min-width: 100% ; /* ⚠️ */
+			    min-width: 100%; /* ⚠️ */
 			    padding:0; 
 			} 
 			.tablegauche{ 
 			      width:100%; /* ⚠️ */
 			      min-height:auto !important; /* ⚠️ */
-				  
-			} 
+			}
+			
+			/* ✅ Dimanche 10.05.26 */
+			
+			/* Elargir les input du searchEngine */
+            .tablegauche input, textarea{
+			    min-width:80% !important;
+		    }
+			
+			/* remplir l'espace à .colonne_contenu */
+			.colonne_contenu{
+				margin-top:0 !important;
+				margin-bottom:0 !important;
+			}
+			.aside2{
+				display:grid;
+				
+			}
+			.tabledroite{
+			    margin:0 ;
+				min-height:auto !important;
+				width:100vw !important; 
+				max-width:100%  !important;
+				padding-left:.1em;
+				padding-right:.1em;
+				
+		    }
+			/* Le bloc haut: La cellule conteneur du panel */
+			.tabledroite tr td.listemenu{
+				line-height:1.5;
+				min-width:92.7vw  !important;
+			}
+			.tabledroite tr td table, #commandePanel {
+				width:100%  !important;
+                max-width:100%  !important;
+				margin:auto;
+			}
+			td.listemenu .blocActes #panel  table tr {
+				font-size:0.75rem !important;
+				
+			}
+			td.listemenu .blocActes #panel  table tr th, 
+			td.listemenu .blocActes #panel  table tr td {
+				border-radius:0 !important;
+			}
+
+			
+
+
+			/* ✅ reajustement d'après test */
+			
+			/* Espacer les acte (sans border sauf l'acte de naissance */
+			
+			
+			/* Augmenter la hauteur du panel: il doit avoir le height du searchEngine(hors caption) */
+		    .tabledroite tr td.listemenu{
+				height:auto;
+				min-height:auto !important;
+			}
+			
+			/* Aerer le panel de commade */
+			
+            td.listemenu table, div#commandePanel{
+			    height:auto;
+				min-height:auto !important;
+		    }
+			td.listemenu table tr td{
+				line-height:3 !important;
+			}
+			div#commandePanel {
+				   display:grid;
+				   gap:10px;
+			}
+            /* completer le gap */
+			.boutonSupprimer, .boutonRectifier, .boutonImprimer, .boutonTrier{
+				top:4px !important; 
+				padding-bottom:10px;
+				margin:auto;
+				border-bottom:.1px solid #ccc;
+			}
+			input.boutonSupprimer {
+			    top:7px !important;
+			}
+			input.boutonTrier {
+				padding-bottom:12px !important;
+			}
+			
+			/* On met le pannel dans un canevas*/
+			body, .colonne_contenu, .tabledroite{
+               background:#ececea !important; 
+			}
+			.tabledroite {
+				height: auto !important;
+				min-height:auto;
+				width:100% !important;
+				min-width:100% !important;
+				padding-top:.2em !important; /*🎯*/
+				padding-bottom:0 !important; /*🎯*/
+				margin:0 !important;
+				border-radius:8px;
+				box-shadow:
+                    0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset,
+                    0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+				
+			}
+			form, .colonne_laterale, .colonne_contenu, .aside2{
+				padding:0 !important;
+			}
+			form{
+				gap:0 !important;
+				flex-direction: row !important; /* 👈pour center la table et occuper width 100% */
+			}
+			
+			
+			
+			/* Hover sur les boutons de commandes */
+			.boutonSupprimer:hover, 
+			.boutonRectifier:hover, 
+			.boutonImprimer:hover, 
+			.boutonTrier:hover{
+				background:#e5eecc !important; /* #eff ressemble #e5eecc en version plus clair   */
+				margin:0 1em .5em auto;
+				max-width:100% !important;
+			}
+			
+			/*neutraliser le strech sur les elts actif */
+			#commandePanel a {
+				display: flex;
+				align-items: center;
+				/*
+				max-width: 98%;  ajuste selon ton design *
+				width:98% !;
+				*/
+				box-sizing: border-box;
+				flex-shrink: 0;
+			}
+			#commandePanel a:focus {
+				outline: none !important;
+				box-shadow: none !important;
+			}
+			#commandePanel a input:focus {
+				outline: none !important;
+				box-shadow: none !important;
+			}
+			#commandePanel a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				box-sizing: border-box;
+				flex-shrink: 0;
+			}
+
+
+
+
+
+			/* Reajustement d'après test */
+			.tabledroite{
+				margin-top:0; /* 2.5em */
+				margin-bottom:0;
+			}
+			/* Bloc du haut: Aligner les <span>  */
+			
+			/* ___________________________________  */
+			
+
+			/* Alignement vertical: bloc du haut */
+			.blocActes {
+				display: flex;
+				flex-direction: column;
+				gap: 2px; /* ESPACEMENT vertical entre les lignes */
+			}
+
+			.blocActes .ligne {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				/*transition: all 0.3s ease;*/
+				gap:0; /* ESPACEMENT ENTRE LABEL ET SELECT */
+				
+			}
+			.blocActes .ligne span{
+				padding-left:.5em;
+			}
+			
+
+			.blocActes span {
+				display: inline-block;
+				width: 140px; /* Ajuste si besoin */
+				white-space: nowrap;
+			}
+			#flip .blocActes .ligne span { 
+			   padding-left:.5em !important;
+			}
+             /* reduire les select */
+			 .blocActes .ligne select {
+				width: 40%; /* 85%; */
+				max-width: 40% !important;
+				min-width:40%;
+				margin-right:.5em;
+				box-sizing: border-box;
+			 }
+			 #flip .blocActes .ligne span.mariage { padding-right:auto;}
+			 #flip .blocActes .ligne span.divorce { padding-right:auto;}
+			 #flip .blocActes .ligne span.deces{ padding-right:auto;}
+			 
+			 #flip .blocActes .ligne select {
+				 margin-left:auto;
+				 height:2em;
+				 width:40%;
+			 }
+			 
+			 #panel { 
+			   max-height: 250px;
+			 }
+			 
+
+			
+			/*____________________________________*/
+			
+						
+			/* Bloc du bas: les 4 btn de commandes */
+			
+			#commandePanel {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+
+			#commandePanel a {
+				display: flex;
+				flex-direction: row !important;
+				align-items: center;
+				/* transition: all 0.3s ease; */ 
+				gap: 10px;
+			}
+			/* bloc du bas */
+			.tabledroite tr td table, #commandePanel {
+                max-width:100%  !important;
+				margin:auto;
+			}
+			
+			/* Neutraliser le strech d'android sur les elt actifs */ 
+			input:focus,
+			select:focus,
+			button:focus,
+			a:focus {
+				outline: none !important;
+				box-shadow: none !important;
+				transform: none !important;
+			}
+			
+
+			/*############################################################################################ */
+			/*####### Mise à jour du bloc bas: gris sur le contour + reajustement des btn en mode hover ####### */
+			
+			#commandePanel a:hover{
+				background:#ddd !important;
+			}
+			#commandePanel a input:hover{
+				padding:14px 0 14px 0;
+				min-width:100%;
+				margin:auto;
+				transition: background-color .25s ease, opacity .25s ease;
+				background: #e5eecc; !important; /* #e5eecc;  pour rester sobre. Sinon #eff */
+			}
+			/*############################################################################################ */
+
 		}
         
+		
+		/* Responsive mobile */
+		@media (max-width: 768px) {
+			.listemenu .ligne {
+				flex-direction: row; /* on garde label + select sur la même ligne */
+				justify-content: space-between;
+			}
+
+			.listemenu span {
+				white-space: nowrap; /* évite que le texte coupe */
+			}
+			.tabledroite tr td table, #commandePanel {
+                max-width:100%  !important;
+				margin:auto;
+			}
+			#commandePanel {
+				max-width:40px  !important;
+			}
+		}
+		
+
+		
+		
+		

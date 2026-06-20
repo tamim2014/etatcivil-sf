@@ -5,6 +5,9 @@
 	 *
      */
 	
+	
+	
+	
 	/*
 	 PANEAU DE GAUCHE
 
@@ -22,10 +25,13 @@
 		
 		
 /* ############################################################################################# */		
-		/* .panel3 : je pense que c'est l'ancien menu aussi mais j'suis pas encore sûr - à vérifier	*/	
-		.panel3  { /* panel yahé sous-sous-menu de ...  à droite   - contient les préfectures Moroni-bambao ,Hambou, ...etc */
-		     list-style:none; 
-			 text-align:center;
+		
+		
+		
+		
+		
+		.panel3  { /* panel yahé sous-sous-menu de  à droite   - contient les préfectures Moroni-bambao ,Hambou, ...etc*/
+		     list-style:none; text-align:center;
 			 display: none; 
 			 color: ; 
 		     background-color: silver; 
@@ -34,128 +40,59 @@
 			 position:relative;  Line-Height: 1.5;
 			 margin-left: .4%;
 		}
-				 
+		
+           
+
+
+		 
+		 
          /*PANEAU DE DROITE */ 
 		 /* pour lectureBD.php */
 		 .mnayvawo { 
 		      position:relative;
-			  width:100%; 
-			  height:88px;
-			  padding:.55em; 
-              padding-top:1.4em;
-			  margin:2% auto ; /* centrage horizontal*/
-			  			  
-              /* Pour limiter la taille du conteneur overflow:  auto; sinon il va s'adapter à la taille du contenu */ 
-			  background-color: #E8E4D8; /* #E8E4D8; #e5eecc; */
+			  height:60px;
+			  width:100%;  margin:2% auto ; /* centrage horizontal du .mnayvawo*/
+			  padding:.55em; /* centrage vertical du contenu(.boutonyamnayivawo) */
+              			  			  
+              /* Pour limiter lataille du conteneur overflow:  auto; sinon il va s'adapter à la taille du contenu */ 
+			  background-color: #e5eecc;
 			  white-space:nowrap;
 			  z-index:2; 
-			  border-radius:8px;
-			/*  box-shadow: 1px 1px 0px 0px #c3c3c3;  ⚠️ #c3c3c3; joue aussi le rôle de border  */
-			 
-
-            /* Effet  relief: Par hazard, le 02.062026 */
-			box-shadow:
-			inset 1px 1px 2px rgba(255,255,255,0.85),
-			inset -1px -1px 2px rgba(0,0,0,0.25);
-			border: 1px solid rgba(0,0,0,0.05);
-
-
-			 
+			  box-shadow: 1px 1px 0px 0px green;
+			  border-radius:8px;			  
 			}		
 		 .boutoyahemnayivawo{
-			   
-			   height: 44px; /*40px  */  
+			   background-color: #cdbe9f; 
+			   height: 40px;   
 			   display: block;  
-			   text-align:center; 
-			   padding-top: 5px; 
-			   padding-bottom: 5px; 
-			   font-size: 15px; font-style: italic; font-family: Times New Roman;  
-			   margin:auto ;  /* centrage horizontal */
-			   width: 80%; 
-			   border-radius:6px; 
-			   /*
-               background-color: #cdbe9f ; 			   
+			   text-align:center;  padding-top: 5px; padding-bottom: 5px; font-size: 15px; font-style: italic; font-family: Times New Roman;  
+			   width: 80%; margin:auto ;  /* centrage horizontal */
+			   border-radius:6px;             			   
 			   box-shadow:
                           0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset,
                            0px 2px 2px 0px rgba(255, 255, 255, 0.5);
-			   
-			   /* Model master handi: Sans box-shadow */
-                border: 2px solid gray;
-				background-color: white;
-				border-bottom: 0;
-				border-right: 0;				
-						   
-						   
 		  }
-		  .mnayvawoResult .boutoyahemnayivawo{
-			  margin-bottom:2%;
-		  }
-		  
-		  
-		  
-		  
-		  
-		  
 		/* Le tableau des résultats */	
 		#yivawo  {  
               position: relative;
-              height:54.55vh !important; /* min-height:59vh 🔍 pour voir que les colonnes ne descendent pas jusqu'au footer <= Bug zonning à corriger rapidement(solution: .aside1, aside2 {height:100%;// aulieu de min-height:100vh}) INCHA ALLAH */
+              height:59vh !important; /* min-height:59vh 🔍 pour voir que les colonnes ne descendent pas jusqu'au footer <= Bug zonning à corriger rapidement(solution: .aside1, aside2 {height:100%;// aulieu de min-height:100vh}) INCHA ALLAH */
 			  /* top:52px; left:13px; height:444px; width:539px;  */
-              width:100%;  
-			  margin:2% auto ; /* centrage horizontal du .mnayvawo*/			  
-	          background-color: #E8E4D8; /* #E8E4D8; #e5eecc; */
+              width:100%;  margin:2% auto ; /* centrage horizontal du .mnayvawo*/			  
+	          background-color: #e5eecc; 
 	          overflow:  auto;  white-space:nowrap;  display: block; 
-			  border-radius:10px;	
-			 /* box-shadow: 1px 1px 0px 0px #cdbe9f; */
-			 
-			/* Effet  relief: Par hazard, le 02.062026 */
-			box-shadow:
-			inset 1px 1px 2px rgba(255,255,255,0.85),
-			inset -1px -1px 2px rgba(0,0,0,0.25);
-			border: 1px solid rgba(0,0,0,0.05); 
-			 
-			
-			 
-			  		  
+			  box-shadow: 1px 1px 0px 0px #cdbe9f;
+			  border-radius:10px;			  
          }
-		 
-		
-		 /* lectureBD: Mise à jour contenu colonne de droite: .mnayvawo, .line1, #yivawo  */
-		 .mnayvawo:first-child{
-			 border-radius: 8px 8px 2px 2px;
-			 margin-bottom:0;
-		 }
-		 .line1{
-			 margin-block:0 !important;
-			 width:100% !important;
-			 border-radius:0;
-		 }
-		 .line1Result{
-			 border-radius: 0 0 8px 8px;
-		 }
-		 #yivawo{
-			border-radius: 0 0 8px 8px; 
-			margin-top:0 !important;
-			height:60vh !important;
-		 }
-		
-		/* FIN Mise à jour contenu colonne de droite: .mnayvawo, .line1, #yivawo */ 
-		 
-		 
-		 
-
 		 
 		 /* Des couleurs alternées dans les lignes de la table: lectureBD.php*/
 		#yivawo table tr:nth-child(2n+2) td {
 				color:Peru ;
-				background:#ccd7ff; /* silver */
+				background: silver;
 				border-radius:4px;
 				-webkit-border-radius:4px;
 				-moz-border-radius:4px;
                 -khtml-border-radius:4px;
         }
-		
-
 		
 	    table.color_line_middle tr  th {
 			    border-radius:1px;
@@ -193,7 +130,7 @@
 			 padding-bottom:1em !important;
 		 }  
 
-      /* On remplace les btn (Imprimer, Afficher) par des icone 👉 voir backend/lectureBD_afficherNaissance.php */
+      /* On remplace les btn (Imprimer, Afficher) par des icone 👉 voir SERVEUR/lectureBD_afficherNaissance.php */
 
 		.icon-btn {
 			font-size: 18px;      
@@ -209,6 +146,7 @@
 			padding: 0.5rem 0.3rem ;
 			line-height: 1.4;
 		}
+		
 		/* Table resultat de recherche */
 		 .scrolbarSearch{
 			 height:auto; 
@@ -221,7 +159,6 @@
 			  background: inherit; /*  couleur du canal */		  
 		 }
 		 
-		 
 		/* Affichage de la prefecture(en haut de la table): lectureBD.php, lectureBD2.php */
 		#wilaya_{
 			color:#000066;  
@@ -229,6 +166,7 @@
 			font-style: italic; 
 			font-family: "Times New Roman", Georgia, serif;
 		}
+		
 /*  ---------------------------------------------------------
    	Astuce pour tester si le css est bien chargé 
 	et pour identifier tous les composants de la page 

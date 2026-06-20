@@ -1,26 +1,12 @@
 		
-		<table class="flip">
-			<tr><td class="listemenu" id="flip" > 
-                <div class="blocActes">
-				    <div class="ligne">
-						<span>Acte de naissance</span>
-						{% include 'inc/accueil/accueil_choisir_naissance.html.twig'  %}    
-				    </div>
-                    <div id="panel" class="scrolbar"></div>  <!-- div#panel est le conteneur de la table --> 					
-						
-					<div class="ligne">	
-						<span class="mariage">Acte de mariage</span>
-						{% include 'inc/accueil/accueil_choisir_mariage.html.twig'  %}
-					</div>
-					<div class="ligne">
-					    <span class="divorce">Acte de divorce</span>
-						{% include 'inc/accueil/accueil_choisir_divorce.html.twig'  %} 
-					</div>
-                    <div class="ligne">					
-						<span class="deces">Acte de décès</span>
-						{% include 'inc/accueil/accueil_choisir_deces.html.twig'  %} 
-			        </div>
-				</div>
+		<table>
+			 <tr><td class="listemenu" id="flip" > 
+                
+				<span>Acte de naissance</span> {% include 'inc/accueil/accueil_choisir_naissance.html.twig'  %}<br>    <div id="panel" class="scrolbar"></div>  <!-- div#panel est le conteneur de la table -->  
+                <span style="padding-right:8px">Acte de mariage</span> {% include 'inc/accueil/accueil_choisir_mariage.html.twig'  %}<br>
+                <span style="padding-right:14px">Acte de divorce</span> {% include 'inc/accueil/accueil_choisir_divorce.html.twig'  %}<br> 
+				<span style="padding-right:26px">Acte de dec&egrave;s</span> {% include 'inc/accueil/accueil_choisir_deces.html.twig'  %} 
+			
              </td></tr>  
 		</table>
 		<!-- le p'tit menu sous le panel [qui appelle une nouvelle table: voir la 5ème colonne du slide]-->

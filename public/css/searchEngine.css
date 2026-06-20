@@ -1,0 +1,92 @@
+/*******************************************************************
+ *
+ * Garges-Les-Gonesse
+ * 10.05.26
+ *
+ *****************************************************************/
+
+	  /* Search engine: Refonte du style  */
+	  	.tablegauche{
+			gap:10px;		    
+			margin-bottom:0; 
+			padding-bottom:0;    
+			background:#ECECEA; 
+	    }
+	    .tablegauche tr td {  
+		   padding-left:2vw;
+		   padding-bottom:1em;
+		} 
+		.tablegauche tr td input, textarea{
+			width:21vw !important;
+			max-width:300px;
+			padding:.4em;
+		}
+		textarea{ height:10vh; }
+		#auth{ padding-top:.7em;}
+		
+		/* Virer les bortures autour des champs */
+		input:focus,
+		textarea:focus {
+			outline: none !important;
+			border: none !important;
+		}
+		
+		
+		
+		/* État normal */
+		.tablegauche input {
+			background-color: #ddd !important;
+			border: 1px solid #bbb !important;
+			padding: 8px;
+			border-radius: 4px;
+			transition: background-color 0.2s, box-shadow 0.2s;
+		}
+
+		/* Hover sobre (Chrome + Edge + Firefox + Safari) */
+		.tablegauche input:hover {
+			box-shadow:
+				inset 0 0 0 1000px #E8F0FE !important,
+				0 0 3px rgba(0,0,0,0.2);
+			background-color: #E8F0FE !important;
+		}
+
+		/* Focus sobre */
+		.tablegauche input:focus {
+			outline: none;
+			box-shadow:
+				inset 0 0 0 1000px #ffffff,
+				0 0 4px rgba(0, 120, 255, 0.5);
+		}
+		
+		/* btn valider */
+
+        .tablegauche input.btnHover {
+			background-color: transparent !important;
+			border: none !important;
+			padding: 8px;
+			border-radius: 4px;
+			transition: background-color 0.2s, box-shadow 0.2s;
+		}
+		
+		/*
+         * Mode responsive
+         * les input et le textarea se sont retrecis
+         *		 
+		 */
+		@media screen and (max-width: 1000px) {
+			form {
+				display: flex;
+				flex-direction: column !important;
+				gap: 10px;
+				width: 100%;
+			}
+			/* Spécifique à lectureBD.php */
+			    .tablegauche-lectureBD tr td input,
+				.tablegauche-lectureBD tr td textarea {
+					width: 70% !important;
+					max-width: 70% !important;
+				}
+		}
+		
+
+

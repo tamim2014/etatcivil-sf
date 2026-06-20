@@ -65,7 +65,8 @@
 			// 1. Appel de la route Symfony
 			
             // xmlhttp.open("GET", "http://127.0.0.1:8000/tablenaissance/" + prfctr, true);
-            //  Comment éviter de préciser les host/port ? 
+            //  Comment éviter de préciser les host/port dans l'url?
+			//  url dynamique: baseUrl, pour eviter 127.0.0.1/8000 dans l'url  
 			xmlhttp.open("GET", baseUrl + "/tablenaissance/"+ prfctr, true);
            //  Url dynamique: baseUrl  est defini dans lectureBD.html.twig
 

@@ -1,5 +1,5 @@
+			
 		/* #########################################  LE MENU ACCORDEON ################################################### */
-		
   
 		#aside{
 	         float:left;	     
@@ -12,16 +12,19 @@
 		  padding: 0 ;
 		  list-style: none;
 		  color: #fff;
-		  width: 250px;
+		  width: 250px; /* 100% */
 		  		  
 		}
 		.navigation .subMenu {		  
-		  /* background: #49505a url(subMenu.png) 0 0 repeat-x; */
-		  background: #49505a;
+		  background: #49505a url(subMenu.png) 0 0 repeat-x;
+
+		  
+
 		  font-size: .9em;
-		  margin: 0 t; padding: 0 ;
+		  margin: 0; padding: 0 ;
 		  border-bottom: 1px solid #666;
 		} 
+
 		.navigation ul.subMenu a {
 		  background: none;		 
 		}
@@ -29,12 +32,13 @@
 		a:hover { opacity: .7;   }
 		.navigation a, .navigation span {
 		  display: block;		  
-		  color:  #c4c4c4; 
+		  color: #dcecea; /* ⚠️ voir .dropdown-content a{ { dans dropdown.css } */
 		  text-decoration: none;
 		}
 		
 		
         .toggleSubMenu .subMenu a{ color:white; }
+
 		
 		
 		/****************** c'est là que ça s'passe ! ******************************/
@@ -48,7 +52,98 @@
 			 display:block;
 			 padding-top:0; padding-bottom:0;
 		 }
-		
+		 
 
+  /*
+        .toggleSubMenu * {
+			color: #E8F0FE !important;
+		}
+*/
 		
+/* ✅ Sulution ancienne ✅ lectureBD.php => include "inc/lecture/topMenu.php" */
+/*		
+@media (max-width: 768px) {
+
+    #aside,
+    .dropdown-content,
+    ul.navigation {
+        width: 100% !important;
+        max-width: 100% !important;
+        float: none !important;
+    }
+
+    ul.navigation a,
+    ul.navigation span {
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+    }
+}
+*/
+
+/* ✅ Solution flexbox ✅ */
+
+/* @media (max-width: 768px) { */
+@media (max-width: 1000px) {
 	
+	/* .en-tete{ display:none;} */
+
+    /* Le conteneur du menu */
+    .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Le bloc aside */
+    #aside {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        max-width: 100% !important;
+        float: none !important;
+    }
+
+    /* La navigation interne */
+    ul.navigation {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* Les éléments internes */
+    ul.navigation li,
+    ul.navigation a,
+    ul.navigation span {
+        width: 100%;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+    }
+	/* -----------------------*/
+	.imprm, .affch{
+		display:none;
+	}
+	.mnayvawo {
+		
+		margin:2% auto 2% auto; /* Pour coller à .tablegache en haut: margin:0 auto 2% auto; */ 
+	}
+	}
+	#yivawo {
+       min-height:10vh !important;
+	  /* max-height:45vh !important; */
+	  margin:2% auto 0 auto; /* Pour decoler du footer:margin:2% auto 2% auto;  */
+	  
+	}
+	
+	.footer {margin-top:0;} 
+}
+
+
+
+
+
+	
+	
+ 	  

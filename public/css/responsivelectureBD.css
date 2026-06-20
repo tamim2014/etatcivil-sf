@@ -26,8 +26,18 @@
 
 /* --- MODE RESPONSIVE AUTOMATIQUE --- */
 
+	.mobilText1, .mobilText2, .mobilText3{
+		 display:none;
+	}
 
 @media screen and (max-width: 1000px) {
+	.mobilText1, .mobilText2, .mobilText3{
+		display:inline;
+	}
+	.desktopText1, .desktopText2, .desktopText3{
+		display:none; 
+	}
+	
 	.menu ul {
         margin-left: 0 !important;
         padding-left: 0 !important;
@@ -104,9 +114,15 @@
 			
 		/* 🎯 On ajuste les dimensions( surtout .tablegauche) 	*/
 		
-		/* @media (max-width: 1000px) { */
+
 		@media screen and (max-width: 1000px) {
-			#formSource{ width:100%; height:40vh; } 
+			.en-tete{ 
+			     display:none;
+			}
+			#formSource{ 
+			   width:100%; 
+			   height:40vh; 
+			} 
 			.colonne_laterale{ 
 			   min-width: 100% ; /* ⚠️ */
 			   padding:0; 
@@ -120,9 +136,12 @@
 			 * .mnayvawo{ padding:5.8em; } le coupable
 			 *  Solution: j'ajoute la classe .mnayvawo2 pour pas impacter lectureBD.php
 			 */
-			 .mnayvawo2{ padding:1em 1.2em !important; }
+			 .mnayvawo2{ 
+			    padding:1em 1.2em !important;
+               			
+			 }
 			 /* 
-			  *Problème: Débordement tabledroite dans lectureBD.php si tabale ouverte
+			  *Problème: Débordement tabledroite dans lectureBD.php si table ouverte
               * On remonte à lectureBD2_searchPlayBack.php		  
               *	mais 		  
               *	table.resultat_moteur ne prend pas tjrs		  
@@ -134,9 +153,155 @@
 				
 			  }
 			  */
-			 
+
 			  
+			 /* Colonne_contenu */
+			 			
+			#yivawo, .mnayvawo {
+               white-space: normal !important;
+            }
+			.mnayvawo, .boutoyahemnayivawo {
+               height:auto !important;
+            }
+			..mnayvawo {
+				margin-top:0 !important;
+			}
+			.boutoyahemnayivawo {
+				padding-top:1em;
+				padding-bottom:1em;
+				margin-top:1em;
+				margin-bottom:1em;
+			}
+			body{padding-bottom:0 !important;}
 			
+            /* Gestion table */
 			
-            			
+			/* 1) Forcer la table à se réduire */
+			table.tabledroite {
+				table-layout: fixed;
+				width: 100%;
+				border-collapse: collapse; /* 5) réduire l'espace interne */
+			}
+			/* 2) Casser les mots trop longs */
+			table.tabledroite tr td, 
+			table.tabledroite tr th {
+				word-wrap: break-word;
+				overflow-wrap: break-word;
+				white-space: normal;
+			}
+            
+            .colonne_contenu, .aside2, .tabledroite, tbody tr td {
+				height:auto !important;
+			} 
+
+			
+			.tabledroite {
+				height: auto !important;
+				min-height: auto;
+				width: 100% !important;
+				padding-top: 7em; 
+				padding-bottom: 7em;
+				margin: auto;
+				border-radius: 8px;
+				box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+			}
+			
+			/* lectureBD2; Resultat de recherche */
+			table tr th{
+				border-radius:0 !important;
+			}
+			table tr th:first-child{
+			 border-radius:8px 0 0 0 !important;	
+			}
+			table tr th:last-child {
+				border-radius:0 8px 0 0 !important;
+			}
+			
+			/* lectureBD.php/.tabledroite: Enlever les border-radius sur mobile */
+			table.couleurPoliceTable tr th:first-child,
+			table.couleurPoliceTable tr th:last-child{
+			 border-radius:0 !important;	
+			}
+
+			
+
+			table tr th{
+				padding-block:0.8rem !important;
+			}
+			/* lectureBD/tabledroite:le contrôle de l'espace vertical est là */
+			table tr td{
+				/* 
+				  C'est ce qui donne l'espace en haut et en bas
+				  de table droite
+				padding-block:0.8rem !important;
+				*/
+				padding-block:0 !important;
+			}
+			td, th {
+				padding:0;
+			}
+
+			/* 
+			 * lectureBD2/tabledroite:
+			 * Le contrôle de l'espace vertical est là 
+			 * Pour accueil: ça se fait sur les padding-block de .tabledroite
+			 */
+			.mnayvawo:first-child {
+				margin-top:.2em !important; /*🎯 agit sur lectureBD aussi*/
+			    margin-bottom:0 !important; /* pour line1 */ 
+				border-radius:8px 8px 0 0;
+			}
+			.mnayvawo:last-child {
+				margin-bottom:0 !important; /*🎯*/
+				margin-top:0 !important; /* pour line1 */ 
+				border-radius:0 0 8px 8px;
+			}
+			/* Fin contôle espacement vertical tabledroite */
+			.line1{
+				width:100%;
+				margin:0;
+				border-radius:0;
+			}
+			#yivawo{
+				border-radius:0 0 8px 8px;
+				margin-top:0 !important; /* pour line1 */ 
+			}
+			table.resultat_moteur{
+				margin-block:3rem;
+			}
+			table.resultat_moteur tr th{
+				padding-block:0.67rem !important;
+			}
+			table.resultat_moteur tr th:first-child,
+			table.resultat_moteur tr td:first-child{
+				display:none; /* On vire ID   */ 
+			}
+			table.resultat_moteur tr th:nth-child(2){
+				border-radius:8px 0 0 0 !important;
+			}
+
+			/*
+			 * Que ce qui fait l'incision?
+			 * C'est la deffirence de box-shadow
+			 * .tablegauche { box-shadow: 0 0 65px #cdbe9f inset;}
+			 * .tabledroite{ la suivante }
+			 */
+    
+			.tabledroite {
+			    box-shadow:
+                    0px 2px 2px 0px rgba(0, 0, 0, 0.5) inset,
+                    0px 2px 2px 0px rgba(255, 255, 255, 0.5);
+			}
+
+		}
+
+       /* Cacher .tabledroite et ses conteneurs sur mobile */
+	   
+	   	@media (max-width: 768px) {
+			.colonne_contenu_cacher_mobil {
+				display: none;
+			}
+			.colonne_contenu_cacher_mobil.visible {
+				display: block;
+			}
 		}

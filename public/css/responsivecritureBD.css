@@ -1,0 +1,167 @@
+ /**
+  * Garges-Les-Gonesses
+  * 06.05.26
+  */
+ 
+ 
+ /* 🧩 responsivEcritureBD.css */
+	 /* ✅ Desactiver le flex du .contenu */
+	.page-form .contenu {
+		display:block ; /* ou grid */
+	}
+	 /* ✅ Activer un flex sur form(conteneur des colonnes) */
+	form {
+		display:flex;
+		flex:1; /* au cas où son conteneur reste en flex */
+		width:100% ;
+		flex-wrap: wrap;				
+	}
+	/* ✅ Descendre les colonnes */
+	form .colonne_laterale, form .colonne_contenu{
+		flex: 1 1 auto; /* 🎯 c' là que ça s'passe: colonnes responsives*/
+		
+	}
+	
+	/* ✅ petit descktop et mobile */
+	@media screen and (max-width: 1000px) {
+		/* ecritureBD.php */
+		form{ 
+			height:auto; 
+			gap:0; 
+		} 
+		.colonne_laterale, .colonne_contenu{ 
+		   min-width: 100% ; /* ⚠️ */
+		   height:auto;
+		   margin:0;
+		   padding:0; 
+		} 
+		.tablegauche, .tabledroite, .tablemenu{ 
+			  width:100%; 
+			  min-height:auto !important; 
+		}
+		
+		/* inc/ecriture/ecritureBD_menudroite.php */
+		#menudroite{
+			padding-top:1.5em;
+			padding-bottom:1.5em;
+		}
+		.kangalaheMenu{
+			width:auto !important;
+		}
+		
+		
+		/* btn Accueil(transparent),  btns Enregistrer, Rectifier, Nouveau document */
+		#menudroite a .kangalaheMenu input, #menudroite .kangalaheMenu input, #menudroite .kangalaheMenu a input {
+			width:100%;
+		}
+
+		/* ✅ Reajustement après test: Sur andoid */
+		
+		/*✔️ Désactiver le sticky */
+		.sticky { 
+		    position: static;
+		    top:auto;
+	    }
+		/*✔️ Aligner les labels de la declaration */
+		/*
+		.jugement{
+			margin-left:0 !important;
+		}
+		.jugement span{
+			margin-left:auto !important;
+		} 
+		*/
+		/*✔️ combler la colonne de droite */
+		#menudroite{
+			padding:0;
+			margin-left:0;
+			width:100%;
+		}
+		#menudroite .kangalaheMenu input{
+			background-color: #74AFAD !important;
+			color:#ececea;
+			padding-top:15px !important;
+			padding-bottom:35px !important;
+			border:none !important;
+			border-top:1px solid #558C89 !important;
+			cursor:pointer;
+			border-radius:0 !important;
+			font-weight:500 !important;
+		    transition: background 0.2s ease,
+					   box-shadow 0.2s ease,
+					   transform 0.2s ease !important;
+		}
+	    #menudroite .kangalaheMenu input:active{
+		   transform:#3a7bc8 translateY(1px) !important;
+	    }
+	   #menudroite .kangalaheMenu input:focus {
+		   outline:none !important;
+		   box-shadow:0 0 0 2px rgba(74, 144, 226, 0.3) !important;
+	    }
+		#menudroite .kangalaheMenu input:hover{
+		    background-color: #558C89 !important;
+		}
+		#menudroite a .kangalaheMenu, .footer{
+			display:none;
+		}
+		/* Elargir les champs de saisie de la table gauche: le laabel haut depasse */
+		.tablegauche tr td select, .tablegauche tr td input{
+		   padding:.1em .3em .1em .5em; /* 8px */
+		   width:69.69% !important;
+	    }
+		
+		
+		 /* ✅ modifier_.php */
+	    .rappel{
+			background:#558C89 !important;
+			color:#333; /* #cba */
+			border-top:.5px solid #222;
+		}	
+	}
+	
+	@media screen and (max-width: 1000px) {
+		/*  tablegauche: Pour acte certifié conforme & entete */
+		span.conforme, .en-tete{
+			display:none;
+		}
+		/*  Ajuster l'espace*/
+		.tablemenu{
+		   height:auto !important;
+		   margin:0 !important;
+		   padding:0 !important;
+		}
+		/* Resserer les btns */
+	   .menudroiteEdit .kangalaheMenu{
+		   margin-top: 0 !important;			   
+		}
+		.en-tete{
+
+		}
+	}
+	
+	.margeSection{
+		padding-top:2em;
+	}
+	/* Alignement des Panneaux emboités: colonnes1 et 3  */
+	.ajustement{
+		color:transparent;
+	}
+	@media screen and (max-width: 786px) {
+	    .ajustement{
+			display:none;
+		}
+		/* colonne centrale */
+		.colonne_contenu{ 
+		  margin-top:0 !important;
+		  padding-top:0 !important;
+		}
+		.margeSection{
+			padding-top:0;
+		}
+	}
+	
+	
+
+	
+		
+

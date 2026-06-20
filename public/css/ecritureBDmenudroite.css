@@ -1,0 +1,44 @@
+	/*
+	 * Garges-Les-Gonesse
+	 * 06.05.26
+	 *
+	 * 🧩 ecritureBD.php: inc/ecriture/ecritureBD_menudroite.php 👈 On modifie le style des btn(voir ecritureBD.css)
+	 * 🧩 modifier_.php:  inc/ecriture/ecritureBD_edit_menudroite1.php 👈 On garde le style des btn
+	 *
+	 */
+	 
+
+	#menudroite, #menudroiteEdit {
+		 width:80%;
+		 margin-left:10%; 
+		 height:30%; 
+	 }
+	 #menudroite a .kangalaheMenu input, #menudroite .kangalaheMenu input{
+		/* ❌ display:block => Ajoute  marges verticale sur les <div> qu'aucun margin ne peut supprimer*/ 
+		height:30px;   
+		margin:auto; 
+	 }
+	 /* btn Accueil(transparent) */
+	 .linkhome2{
+		 display:block; /* ✅=> Supprime  marges verticale sur  <a> et l'aligne au centre */
+	 }
+	 #menudroite a .kangalaheMenu input {
+		display: block; /* ✅=>  alignent les btns au centre */
+		background:#558C89; 
+		color:transparent; 
+		
+	 }
+	 /* btns Enregistrer, Rectifier, Nouveau document */
+	 #menudroite .kangalaheMenu input, #menudroite .kangalaheMenu a input {
+		 background-color:#cdbe9f; 
+		 height: 30px;				 
+	}
+	
+	/* On resserre les bouton (seulement sur ecritureBD.php) */
+	#menudroite a .kangalaheMenu  {
+		padding-bottom:0 !important;
+	}
+	#menudroite  .kangalaheMenu  {
+		padding-top:0 !important;
+		padding-bottom:0 !important;
+	}

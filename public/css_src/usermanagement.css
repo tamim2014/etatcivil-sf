@@ -28,18 +28,6 @@
 			
 			box-shadow: 0 0 12px rgba(0,0,0,0.15) !important;
 		}
-		/* Aligner les champs dur .form1 verticalement */
-				
-		.form-container form {
-			display: block !important;
-			width: 100%;
-		}
-		.form-group {
-			display: block !important;
-			width: 100%;
-		}
-
-
 
 		@media (max-width: 450px) {
 			.form-container {
@@ -63,7 +51,7 @@
 			margin-bottom: 6px;
 			color: #444;
 		}
-        .form-group select,
+
 		.form-group input {
 			width: 100%;
 			padding: 10px;
@@ -72,7 +60,7 @@
 			font-size: 15px;
 			transition: 0.2s;
 		}
-        .form-group select:focus,
+
 		.form-group input:focus {
 			border-color: #007bff;
 			box-shadow: 0 0 5px rgba(0,123,255,0.4);
@@ -234,8 +222,9 @@
 		}
 	}
 	
-
-	/* Ajout d'un sticky */	 
+	
+	/* Ajout d'un sticky */
+	 
 	.sticky { 
 	    position: fixed;
 	    top: 0;
@@ -244,6 +233,7 @@
 	#myTopnav{
 		z-index:3;
 	}
+	
 	
 	
 
@@ -257,7 +247,5 @@
 	 .contenu {
 	   flex:1;		   
 	 }
-	 
-
 		 
 	

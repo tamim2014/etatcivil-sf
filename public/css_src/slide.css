@@ -1,19 +1,12 @@
 
 #panel, #flip {
     text-align: center;
-    background-color: #E8E4D8; /*🎯 #e5eecc; #e9eddc; ||| #E3EBEA; #E6EAE5; #E8E4D8;  */
+    background-color: #e5eecc;
     border: solid 1px #c3c3c3;
 	border-radius:8px;
 	-webkit-border-radius:8px;
 	-moz-border-radius:8px;
 	-khtml-border-radius:8px;
-	
-	
-	/* Effet  relief: Par hazard, le 02.062026 */
-	box-shadow:
-	inset 1px 1px 2px rgba(255,255,255,0.85),
-	inset -1px -1px 2px rgba(0,0,0,0.25);
-	border: 1px solid rgba(0,0,0,0.05);
 }
 /* #########################################################################
  * 
@@ -71,44 +64,11 @@
 	-webkit-border-radius:8px;
 	-moz-border-radius:8px;
 	-khtml-border-radius:8px;
-		
 }
 
+/* table du panel: accueil.php  */
 
-/* ########################################################################### 
- * ✔️ Séparer l'acte de naissance dans le panel  
- * ✔️ Regrouper les 3 autres actes ( leurs panels n'existes pas encore) - Avenant au contrat INCHA ALLAH
- *  
- * Le contrat initial couvre seulement les actes de naissances
- * Des avenants viendront étendre le périmètre du projet sur les 3 lots supplémentaires:
- * ✅ Les acte de mariage
- * ✅ Les acte de divorce
- * ✅ Les acte de décès
- *
- *  INCHA ALLAH
- */
- 
-.blocActes #panel:nth-child(2){
-	border-bottom:solid 1px #c3c3c3 !important;
-}
-.blocActes #panel:nth-child(4),
-.blocActes #panel:nth-child(6),
-.blocActes #panel:nth-child(8){
-	border-bottom:none !important;	
-}
-.blocActes{
-	margin-bottom:.7em !important;
-}
-/* #################################################################################  */
-
-/* table du panel: Afficher  */
-#panel table.couleurPoliceTable tr:nth-child(2n+2) td {
-    color:Peru ;
-    background: #ccd7ff;  /*  silver  ✍️*/
-    -webkit-border-radius:4px;
-}
-/* table du panel: Supprimer, Rectifier, Imprimer, Trier  */
-#panel table.crud tr:nth-child(2n+1) td {
+#panel table tr:nth-child(2n+2) td {
     color:Peru ;
     background: #ccd7ff;  /*  silver  ✍️*/
     -webkit-border-radius:4px;
@@ -116,7 +76,7 @@
 
 #commandePanel  {
 	
-    background-color: #E8E4D8; /* 🎯 #e5eecc; #e9eddc; ||| #E3EBEA; #E6EAE5; #E8E4D8;*/
+    background-color: #e5eecc;
     border: solid 1px #c3c3c3;
 	border-bottom:solid 1px #c3c3c3;
 	padding-bottom:1px;
@@ -127,15 +87,6 @@
 	-webkit-border-radius:8px;
 	-moz-border-radius:8px;
 	-khtml-border-radius:8px;
-	
-	
-	/* Effet  relief: Par hazard, le 02.062026 */
-	box-shadow:
-	inset 1px 1px 2px rgba(255,255,255,0.85),
-	inset -1px -1px 2px rgba(0,0,0,0.25);
-	border: 1px solid rgba(0,0,0,0.05);
-	
-	
 
 }
 
@@ -224,13 +175,6 @@ th
   -webkit-border-radius:8px;
 
 }
-table:hover tr th{
-	background:#2F5A87;
-}
-table tr th:last-child{
-	border-radius:8px 0 8px 8px;
-}
-
 tr
 {
 	-moz-border-radius:4px;
@@ -246,18 +190,22 @@ tr
 		 #commandePanel   {
 			display: table;
 			min-width:100%;
-			padding:8px 0 8px 0 !important;
-			line-height:2; /* je l'ai renforcé avec des margin car des fois ça prends pas */ 
+			padding:4px 0 4px 0 !important; /*  8px 0 8px 0 !important; en procedurale */
+			line-height:1; /* 2 ( en procedurale) je l'ai renforcé avec des margin car des fois ça prends pas */ 
+		    padding-bottom:0 !important;  /* pas là en procedurale */
 		 }
          #commandePanel a input {
 			border-bottom:1px solid #c3c3c3 !important;
 		 }
 		 #commandePanel a#trier input:last-child {
 			border-bottom:none !important;
-		 }			
+		 }	
+		 #commandePanel a#trier input{
+			margin-bottom:0 !important; /* n'est pas là en procedurale */
+		 }		 
 		#commandePanel a input{	
-			padding:1em;
-			background: #E8E4D8; /* 🎯 #e5eecc; #e9eddc; ||| #E3EBEA; #E6EAE5; #E8E4D8; */
+			padding:.5em; /* 1em en procedurale) */
+			background: #e5eecc;
 			color: #111;
 			border-radius: 5px;
 			text-decoration: none;
@@ -265,13 +213,13 @@ tr
 		}
 		#commandePanel:hover{
 			 background-color:  #ddd; /* #eff; #e5eecc; */
-			 padding:18px 14px 18px 14px !important; /* marge btn (gche & dte)*/
-			 line-height:3; /* separe les btn */
+			 padding:10px 14px 10px 14px !important; /* 18px 14px 18px 14px enprocedurale*/
+			 line-height:3; /* separe les btn : 3 en procedurale */
         }
 		#commandePanel a input:hover{
-			background-color:#e9eddc !important;   /* 🎯#e9eddc 🎯   #edf3dc;  #eef2e3; ou #ececec; sinon le marron revient au bord */
+			background-color:#e9eddc !important;   /* :#edf3dc;  #eef2e3; ou #ececec; sinon le marron revient au bord */
 			border-color:#b8bea8;
-			padding:18px 14px 18px 14px !important;
+			padding:15px 14px 15px 14px !important; /* 18px 14px 18px 14px    en procedurale*/
             margin-top:.4em;			
             margin-bottom:.4em;			
 			opacity: 0.95; 
@@ -297,7 +245,5 @@ tr
 		 }
 		 #commandePanel:hover a#trier input{
 			 border-bottom:1px solid #b8c29f !important; 
+			 margin-bottom:0 !important;/* pas là en procedurale */ 
 		 }
-		 
-		 
-		 

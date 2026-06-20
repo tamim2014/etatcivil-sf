@@ -6,12 +6,12 @@ body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
     line-height: 1.5;
-    background: #E8E4D8; /* #ECECEA;  #E8E4D8;  */
+    background: #ECECEA;
 }
 
 /* Style en-tête */
 .en-tete{
-    background-color: #558C89; /* #558C89;   ✍️*/
+    background-color: #558C89; /*   ✍️*/
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
@@ -25,24 +25,11 @@ body {
     margin-top: -16px;
     text-align: center;
 }
-
-
-
-
 .menu li {
-	list-style:none;	
     display:inline-block;
-    padding:14px 16px;  
+    padding:14px 16px;/* padding:20px; */
+    list-style:none;
 }
-
-
-
-
-
-
-
-
-
 .menu a {
     color:#000;
     text-decoration: none;
@@ -60,8 +47,7 @@ body {
 .colonne_laterale {
     width: 30%;
     /* float: left;   ✍️remplacé par  form{ display: left}  <= 2 paradigme encien(1998) et nouveau(2017) */
-    /* padding: 0 20px 0 20px; */
-	padding: 0;
+    padding: 0 20px 0 20px; 
     list-style-type: none;
 }
 
@@ -78,6 +64,7 @@ body {
     width: 68%;
   /*  float: left; ✍️*/
     padding: 25px 20px;
+    background: white;
 }
 
 
@@ -88,7 +75,7 @@ body {
 
 .colonne_laterale aside {
 	/* à supprimer ces 2 première proprietés  ✍️ */
-    background:inherit;  /*  */  
+    background:inherit;    
     padding:15px;
 	padding-top:0 !important;
 	
@@ -143,16 +130,6 @@ img {
     margin-right: 8px;
 }
 
-/* Ajout d'un sticky */	 
-.sticky { 
-	position: fixed;
-	top: 0;
-	width: 100%;
-}
-#myTopnav{
-	z-index:3;
-}
-
 /* ################ TASKS: COMPLEMENT DE ZONNING(Virer l'espace vide en bas=> remplir donc, toute la hauteur de la page) ###########################################  */ 
   
   form{
@@ -165,13 +142,12 @@ img {
  
 
   aside.aside1, aside.aside2{
-	 height:100% !important;  /* ⚠️⚠️⚠️ virer l'espace vide en bas  de .aside1🎯 */
-	 background: #ECECEA !important; /* #ECECEA */
-	 box-shadow: 0 0 65px #cdbe9f inset !important; 
+	 height:100% !important;  /* ⚠️ virer l'espace vide en bas */
+	 background:#ECECEA  !important; 
+	 box-shadow: 0 0 65px #cdbe9f inset !important;
   }
   aside.aside2{
 	  box-shadow:none !important;
-	  height:auto !important; /* ⚠️⚠️⚠️ virer l'espace vide en bas  de .aside2🎯 */
   }
   
   .tablegauche{ 

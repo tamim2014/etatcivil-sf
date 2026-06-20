@@ -33,3 +33,165 @@
 				background-color:red;
 	   }
 	   */
+	   
+      /* ###########" MISE A JOUR FORMULAIRE DE SAISIE: 06.05.26 ######################/
+	  
+	  	    /* 🧩 Les champs de saisie dans le panneau de gauche */
+
+			   .tablegauche tr td select, .tablegauche tr td input{
+				   padding:.1em .3em .1em .5em; /* 8px */
+				   width:52%;
+				   
+				   border:1px solid #ccc;
+				   outline:none;
+				   transition: all 0.2s ease; /* border-color 0.2s esase box-shadow o.2s ease; */
+                   background-color:#f9fafb;	/* #fff */			   
+			   }
+			   .tablegauche tr td select{
+				   padding:.2em .3em !important;
+			   }
+			   .tablegauche tr td select:focus,
+			   .tablegauche tr td input:focus,
+               .tablegauche tr td select:focus,
+                body div.contenu form div.colonne_contenu aside table.tabledroite  tr td input:focus{
+				   border-color: #4A90E2; /* bleu moderne */
+				   box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+				   background-color:#fff;
+			   }
+		
+		/* 🧩 Les champs de saisie dans le panneau centrale  */
+			 body div.contenu form div.colonne_contenu aside table.tabledroite  tr td input{
+				 padding:.5em .5em ;
+				 margin-bottom:.3em ;
+				 
+				 border:1px solid #ccc;
+				 outline:none;
+				 transition: all 0.2s ease; /* border-color 0.2s esase box-shadow o.2s ease; */
+                 background-color:#f9fafb;
+			 }
+             #tetu{  padding:1.2em .5em !important;}
+			 
+		/* 🧩 Style des Boutons: 2 au centre, 4 à droite  */
+			   
+		   /* Bouton Afficher l'acte, bouton imprimer l'acte  */
+		   .btnOutput{
+			   margin-top:2em ;
+			   /* padding:10px 18px; */
+			   background-color:#4A90E2 !important; /* #cdbe9f; */
+			   color:#fff !important;
+			   cursor:pointer !important;
+			   border-radius:5px !important;
+			   font-size:14px !important;
+			   font-weight:500 !important;
+			   transition: background 0.2s ease,
+						   box-shadow 0.2s ease,
+						   transform 0.2s ease !important;
+		   }
+		   .btnOutput:hover{
+			   background:#3a7bc8 !important;
+		   }
+		   .btnOutput:active{
+			   transform:#3a7bc8 translateY(1px) !important;
+		   }
+		   .btnOutput:focus,  .btnWrite:focus, .writeBtn:focus {
+			   outline:none !important;
+			   box-shadow:0 0 0 2px rgba(74, 144, 226, 0.3) !important;
+		   }
+		   
+		   /* Boutons Enregistrer, Rectifier, Nouveau document */
+		   .btnWrite, #btnWrite, .writeBtn{
+			   border:1px solid #ccc !important;
+			   transition: all 0.2s ease !important; 
+			   background-color:#f9fafb !important;	/* #cdbe9f; */
+			   cursor:pointer !important;
+			   border-radius:5px !important;
+			   font-weight:500 !important;
+			   transition: background 0.2s ease,
+						   box-shadow 0.2s ease,
+						   transform 0.2s ease !important;
+		  }
+
+		  .btnWrite:hover{
+			   background:#fff !important;
+		   }
+		   .writeBtn:hover{
+			   color:#fff !important;
+		   }
+		   
+		   /*✔️ labels de la declaration */
+		   	.jugement{
+			    border:none !important;
+				background:transparent !important;
+		    }
+			
+			/* ✅ modifier_.php */
+			
+		    /*Ecarter les btn menu droite */
+					/* Grandir les champs de saisie */
+		    input{
+				  padding:.2em .5em;
+			}
+			
+			.menudroiteEdit .kangalaheMenu{
+				margin-top: 2em;			   
+			}
+			
+		    /* 🧩 Message Flash: Confirmation de l'enregistrement - Btn Enregistrer */
+			.flash-success, .alert2 {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				padding: 15px 20px;
+				font-weight: bold;
+				text-align: center;
+				box-shadow: 0 -2px 6px rgba(0,0,0,0.15);
+				z-index: 9999;
+				
+				background: #d4edda;
+				color: #155724;
+				border-top: 4px solid #28a745;
+			}
+			/* Btn Imprimer: Cas document vide */
+			.alert2 {
+				background-color: #ffdddd;
+				color: #a10000;
+				border-top: 4px solid #ff9999; 
+			}
+
+			/* La petite croix à droite */
+			.flash-close {
+				position: absolute;
+				right: 15px;
+				top: 50%;
+				transform: translateY(-50%);
+				font-size: 22px;
+				font-weight: bold;
+				cursor: pointer;
+				color: #155724;
+				opacity: 0.7;
+			}
+
+			.flash-close:hover {
+				opacity: 1;
+				color: #700000;
+			}
+
+
+			
+			@media (max-width: 768px) {
+				.flash-success, .alert2 {
+					padding: 15px 20px 15px 4px;
+					text-align: left;
+				}
+				.flash-close{
+					text-align: right;
+				}
+				
+			}
+			
+	
+			
+			
+			
+

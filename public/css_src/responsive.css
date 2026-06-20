@@ -242,12 +242,12 @@
 		.footer span{
 			font-size:.85rem !important;
 		}
-		/* userManagement.php: On cache la colonne ID */
+		/* userManagement.php */
 		div.table1 table.officiers tr th:first-child, .officiers tr td:first-child {
 			display:none;
 		}
-		div.table1 table.officiers, div.table1 table.officiers tr th, div.table1 table.officiers tr td{
-			border-radius:0;
+		div.table1 table.officiers, div.table1 table.officiers tr th, div.table1 table.officiers tr td{		
+			border-radius:0;		
 		}
 		
 		div.table1 table.officiers tr td{

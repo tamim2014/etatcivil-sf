@@ -1,0 +1,38 @@
+	 
+	   .flag{
+		  width:30%; 
+		  height:100%; 
+		  filter:brightness(80%); 
+	   }
+	   .text_header{
+		  padding-left:50%;
+	   }
+	   .contenu{
+		   display:flex; 
+		   margin-bottom:0;
+	   }
+	   .tablegauche-lectureBD caption{
+		  caption-side:top; 
+		  box-shadow: 0 20px 65px #cdbe9f inset;" 
+	   }
+	   .tablegauche-lectureBD caption font{
+		   line-height:2;
+	   }
+	   .tablegauche-lectureBD caption img{
+		  z-index:3;  
+		  margin-left:40%; 
+		  margin-right:40%; 
+		  width:20%;   
+	   }
+	   .tablegauche-lectureBD tr td input.btnHover{
+		   background:transparent; 
+		   color:#111; 
+		   padding:.3em 3.3em; 
+		   margin:1em auto; 
+	   }
+	   .line1{
+		   width:98%; 
+		   height:5px; 
+		   margin:auto;
+	   }
+	 
