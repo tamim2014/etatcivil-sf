@@ -19,7 +19,9 @@
             <td>{{ acte.prefecture }}</td>
 
             <td>
-            <button class="boutonSupprimer" data-id="{{ acte.id }}">
+            <button class="boutonSupprimer" 
+                    data-id="{{ acte.ID }}"
+                    onclick="confirmerSuppression({{ acte.ID }});">
                 Supprimer
             </button>
 

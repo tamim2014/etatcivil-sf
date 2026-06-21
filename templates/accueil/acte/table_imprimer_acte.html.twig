@@ -19,16 +19,16 @@
             <td>{{ acte.prefecture }}</td>
 
             <td>
-              <!-- 
-                <button class="boutonImprimer" data-id="{{ acte.id }}">
+              <!--               
+                <button class="boutonImprimer" data-id="{{ acte.id }}"
+                    onclick="window.location='{{ path('imprimer', { id: acte.ID }) }}'">
                     Imprimer
                 </button>
               -->
-
-                <button class="boutonImprimer" data-id="{{ acte.id }}"
-                        onclick="window.location='{{ path('imprimer', { id: acte.ID }) }}'">
-                    Imprimer
-                </button>
+              <a class="icon-btn" data-id="{{ acte.id }}" 
+                  onclick="window.location='{{ path('imprimer', { id: acte.ID }) }}'">
+                   🖨️
+              </a>
             </td>
         </tr>
     {% endfor %}

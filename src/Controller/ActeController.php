@@ -130,6 +130,7 @@ class ActeController extends AbstractController
     #[Route('/tableimprimer', name: 'table-imprimer')]
     public function tableImprimer(ActeRepository $repo, Request $request): Response
     {
+    
         // 1. On récupère la préfecture stockée dans la session
         $session = $request->getSession();
         $prefecture = $session->get('v');
@@ -156,9 +157,14 @@ class ActeController extends AbstractController
         $session = $request->getSession();
         $prefecture = $session->get('v');
 
-        // 2. Si la préfecture existe, on filtre
+        // 2. Si la préfecture existe, on filtre: Dotrine ORM
         if ($prefecture) {
-            $actes = $repo->findBy(['prefecture' => $prefecture]);
+           // $actes = $repo->findBy(['prefecture' => $prefecture]);
+           $actes = $repo->findBy(
+                ['prefecture' => $prefecture],
+                ['nom' => 'ASC']   // <= ORDER BY nom ASC
+           );
+
         } else {
             // Si aucune préfecture n'est définie, on renvoie une liste vide
             $actes = [];

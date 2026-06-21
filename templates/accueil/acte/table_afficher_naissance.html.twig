@@ -18,9 +18,10 @@
             <td>{{ ligne.prefecture }}</td>
             <td>
 			   
-            <a href="{{ path('lien-afficher', { id: ligne.ID }) }}"
-            onclick="return ouvrePop(this.href);">
-                Afficher
+            <a class="icon-btn"
+               href="{{ path('lien-afficher', { id: ligne.ID }) }}"
+               onclick="return ouvrePop(this.href);">
+                  👁️
             </a>
 				
             </td>

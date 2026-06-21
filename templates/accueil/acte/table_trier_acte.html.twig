@@ -19,9 +19,13 @@
             <td>{{ acte.prefecture }}</td>
 
             <td>
-                <button class="boutonTrier" data-id="{{ acte.id }}">
-                    Trier
-                </button>
+          
+                <a  class="icon-btn"
+                    href="{{ path('lien-afficher', { id: acte.ID }) }}"
+                    onclick="return ouvrePop(this.href);">
+                       🔍
+                </a>
+               
             </td>
         </tr>
     {% endfor %}

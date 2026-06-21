@@ -23,3 +23,42 @@ function ouvrePop(url) {
 	);
 	return false;
 }
+
+/* #########################################################
+ * 
+ * Accueil.php 👉 table backend/colonne_supprimer_acte.php 
+ * Gestion du Bouton 🗑️  ( dernière colonne de la table)
+ * 
+ */
+ 
+//1. Alerte de précaution avant suppression(Btn OK/Annuler):
+function confirmerSuppression(id) {
+    const modal = document.getElementById("confirmModal");
+    modal.style.display = "flex";
+
+    document.getElementById("btnOk").onclick = async function() {
+
+        const response = await fetch(`/supprimer/${id}`, {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            // On ferme le modal
+            modal.style.display = "none";
+
+            // On supprime la ligne du tableau
+            document.querySelector(`[data-id="${id}"]`).closest('tr').remove();
+        } else {
+            alert("Erreur : " + result.message);
+        }
+    };
+
+    document.getElementById("btnCancel").onclick = function() {
+        modal.style.display = "none";
+    };
+}
