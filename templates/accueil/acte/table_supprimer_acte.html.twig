@@ -19,14 +19,11 @@
             <td>{{ acte.prefecture }}</td>
 
             <td>
-            <button class="boutonSupprimer" 
-                    data-id="{{ acte.ID }}"
-                    onclick="confirmerSuppression({{ acte.ID }});">
-                Supprimer
-            </button>
-
-
-
+                <a  class="icon-btn"
+                        data-id="{{ acte.ID }}"
+                        onclick="confirmerSuppression({{ acte.ID }});">
+                        🗑️
+                </a>
             </td>
         </tr>
     {% endfor %}

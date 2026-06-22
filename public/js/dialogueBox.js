@@ -32,7 +32,7 @@ function ouvrePop(url) {
  */
  
 //1. Alerte de précaution avant suppression(Btn OK/Annuler):
-function confirmerSuppression(id) {
+function confirmerSuppression_______(id) {
     const modal = document.getElementById("confirmModal");
     modal.style.display = "flex";
 
@@ -62,3 +62,19 @@ function confirmerSuppression(id) {
         modal.style.display = "none";
     };
 }
+
+
+function confirmerSuppression(id) {
+    const modal = document.getElementById("confirmModal");
+    modal.style.display = "flex";
+
+    document.getElementById("btnOk").onclick = function() {
+        modal.style.display = "none";
+        window.location.href = "/supprimer/" + id;
+    };
+
+    document.getElementById("btnCancel").onclick = function() {
+        modal.style.display = "none";
+    };
+}
+

@@ -26,6 +26,14 @@
 
 {% block body %}
 
+{% for message in app.flashes('messageDelete') %}
+    <div class="flash-success">
+        {{ message }}
+        <span class="flash-close">&times;</span>
+    </div>
+{% endfor %}
+
+
 <header>
     <div class="en-tete">
         <div class="hollowTop">

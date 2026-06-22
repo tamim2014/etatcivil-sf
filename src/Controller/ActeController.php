@@ -88,20 +88,33 @@ class ActeController extends AbstractController
 
     // IIbis. Le controleur qui supprime un document
 
-    #[Route('/supprimer/{id}', name: 'supprimer_acte', methods: ['POST'])]
-    public function supprimer(int $id, ListeRepository $repo, EntityManagerInterface $em)
-    {
-        $ligne = $repo->find($id);
+ #[Route('/supprimer/{id}', name: 'supprimer_acte')]
+public function supprimer(
+    int $id,
+    ListeRepository $repo,
+    EntityManagerInterface $em
+) {
+    // On récupère la ligne
+    $ligne = $repo->find($id);
 
-        if (!$ligne) {
-            return $this->json(['success' => false, 'message' => 'Introuvable'], 404);
-        }
-
-        $em->remove($ligne);
-        $em->flush();
-
-        return $this->json(['success' => true], 200);
+    // Si introuvable
+    if (!$ligne) {
+        $this->addFlash('messageDelete', 'Erreur : élément introuvable ⚠️');
+        return $this->redirectToRoute('accueil');
     }
+
+    // Suppression
+    $em->remove($ligne);
+    $em->flush();
+
+    // Message de succès
+    $this->addFlash('messageDelete', 'Suppression effectuée avec succès ⚠️');
+
+    // Retour à l'accueil (même si on y est déjà)
+    return $this->redirectToRoute('app_accueil');
+}
+
+
 
     // III. Le controleur qui affiche la table Rectifier
 
